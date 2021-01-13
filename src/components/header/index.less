@@ -7,8 +7,9 @@
     padding: 0;
   }
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+
   width: 100%;
   height: 46px;
   margin-bottom: 1.2rem;
@@ -18,11 +19,34 @@
 
   color: @white;
   font-weight: bold;
+  text-align: center;
+
+  &__left,
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: @text-normal;
+    font-weight: normal;
+    height: 20px;
+    min-width: 50px;
+  }
+
+  &__left {
+    margin-left: 1rem;
+  }
+
+  &__right {
+    margin-right: 1rem;
+  }
+
   &__center {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    .sub-title {
+    justify-content: center;
+
+    .header__sub-title {
       font-size: @text-xs;
       font-weight: normal;
     }

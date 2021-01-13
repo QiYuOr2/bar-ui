@@ -1,8 +1,12 @@
 import { defineComponent } from 'vue';
+import icon from '../icon';
 import './index.less';
 
 export default defineComponent({
   name: 'bar-header',
+  components: {
+    icon,
+  },
   props: {
     title: {
       type: String,
@@ -22,8 +26,54 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    scrollTarget: {
+      type: String,
+    },
+    leftText: {
+      type: String,
+      default: '',
+    },
+    leftArrow: {
+      type: Boolean,
+      default: false,
+    },
   },
-  setup(props) {
+  emits: ['clickLeft', 'clickRight'],
+  setup(props, { emit, slots }) {
+    const backTop = (id: string) => {
+      const target = document.getElementById(id);
+      if (target?.scrollTop !== 0) {
+        target?.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      }
+    };
+
+    const handleClickLeft = (event: MouseEvent) => {
+      emit('clickLeft', event);
+    };
+    const handleClickRight = (event: MouseEvent) => {
+      emit('clickRight', event);
+    };
+
+    const renderLeft = () => {
+      if (slots.left) {
+        return (
+          <div class="bar-header__left" onClick={handleClickLeft}>
+            {slots.left()}
+          </div>
+        );
+      }
+
+      return (
+        <div class="bar-header__left" onClick={handleClickLeft}>
+          {props.leftArrow && <icon name="left" size="sm" />}
+          <span>{props.leftText ? props.leftText : ''}</span>
+        </div>
+      );
+    };
+
     return () => (
       <>
         <header
@@ -36,14 +86,19 @@ export default defineComponent({
             left: 0,
             zIndex: 2999,
           }}
+          onClick={() => {
+            props.scrollTarget && backTop(props.scrollTarget);
+          }}
         >
-          <div>
-            <div class="bar-header__left"></div>
-            <div class="bar-header__center">
-              <p class="title">{props.title}</p>
-              {props.subTitle && <p class="sub-title">{props.subTitle}</p>}
-            </div>
-            <div class="bar-header__right"></div>
+          {renderLeft()}
+          <div class="bar-header__center">
+            <p class="header__title">{props.title}</p>
+            {props.subTitle && (
+              <p class="header__sub-title">{props.subTitle}</p>
+            )}
+          </div>
+          <div class="bar-header__right" onClick={handleClickRight}>
+            {slots.right ? slots.right() : ''}
           </div>
         </header>
         {props.fixed && <div style="height: calc(46px)"></div>}
