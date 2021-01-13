@@ -1,5 +1,6 @@
 <template>
   <div class="example-container">
+    <bar-header title="演示页" sub-title="演示页子标题" fixed />
     <bar-section title="加载图标">
       <bar-icon name="loading" size="lg" />
       <bar-icon name="loading" />
@@ -56,6 +57,7 @@
 
 <script>
 import { defineComponent } from 'vue';
+import header from '../../components/header';
 import cardStack from '../../components/card-stack';
 import card from '../../components/card';
 import button from '../../components/button';
@@ -72,6 +74,7 @@ export default {
     [icon.name]: icon,
     [section.name]: section,
     [divider.name]: divider,
+    [header.name]: header,
   },
   setup() {
     const data = [
@@ -97,7 +100,7 @@ export default {
 </script>
 <style lang="less">
 .example-container {
-  padding: 1rem;
+  // padding: 1rem;
   & .bar-section .content > * {
     margin-bottom: 1rem;
     margin-right: 1rem;

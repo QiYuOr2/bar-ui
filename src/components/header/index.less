@@ -1,0 +1,30 @@
+@import '../../variable.less';
+
+.bar-header {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 46px;
+  margin-bottom: 1.2rem;
+  box-shadow: @shadow-1-heavy;
+
+  background-color: @primary-color;
+
+  color: @white;
+  font-weight: bold;
+  &__center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .sub-title {
+      font-size: @text-xs;
+      font-weight: normal;
+    }
+  }
+}

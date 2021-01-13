@@ -1,11 +1,6 @@
 <template>
   <div class="container">
-    <nav>
-      <router-link to="/example">example</router-link>
-    </nav>
-    <main>
-      <router-view></router-view>
-    </main>
+    <router-view></router-view>
   </div>
 </template>
 
