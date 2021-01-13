@@ -1,0 +1,56 @@
+@import '../../variable.less';
+
+.bar-divider {
+  * {
+    box-sizing: border-box;
+  }
+  border-top: 1px solid @border-color-super-light;
+  margin: 20px 0;
+  &.has-text {
+    display: flex;
+    align-items: center;
+    border: none;
+    &::before,
+    &::after {
+      content: '';
+      width: 50%;
+      border-top: 1px solid @border-color-super-light;
+    }
+    span {
+      white-space: nowrap;
+      display: inline-block;
+      margin: 0 1em;
+      height: 20px;
+    }
+    &.text-left {
+      &::before {
+        width: 5%;
+      }
+      &::after {
+        width: 95%;
+      }
+    }
+    &.text-right {
+      &::before {
+        width: 95%;
+      }
+      &::after {
+        width: 5%;
+      }
+    }
+  }
+
+  &__text {
+    font-size: @text-sm;
+    color: @text-color-secondary;
+  }
+
+  &-vertical {
+    height: 100%;
+    min-height: 1em;
+    display: inline-block;
+    border-top: none;
+    border-left: 1px solid @border-color-super-light;
+    margin: 0 10px;
+  }
+}

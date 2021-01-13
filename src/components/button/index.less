@@ -1,79 +1,158 @@
 @import '../../variable.less';
 
 .bar-button {
-  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  height: 37px;
+  padding: 0 12px;
   border-radius: @border-radius-base;
   border: 1px solid @border-color-base;
   box-shadow: @shadow-1-down;
+
   transition: all 0.4s;
   font-size: 14px;
   cursor: pointer;
   &:focus {
     outline: 0;
   }
-}
-.bar-button.btn-lg {
-  font-size: 15px;
-  padding: 10px 15px;
-}
-.bar-button.btn-sm {
-  font-size: 13.5px;
-  padding: 6px 8px;
-}
-.bar-button.btn-default {
-  background-color: @gray1;
-  &:hover {
-    border-color: @primary-color;
-    color: @primary-color;
+
+  // 设置按钮有icon时的样式
+  & > div {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    .bar-icon {
+      position: absolute;
+    }
+    span {
+      margin-left: 24px;
+    }
   }
-}
-.bar-button.btn-primary {
-  background-color: @primary-color;
-  border-color: @primary-color;
-  color: @white;
-  &:hover {
-    background-color: @primary-light;
-    border-color: @primary-light;
+
+  // 大号
+  &.btn-lg {
+    height: 42px;
+    font-size: 15px;
+    padding: 0 16px;
   }
-}
-.bar-button.btn-warn {
-  background-color: @warn-color;
-  border-color: @warn-color;
-  &:hover {
-    background-color: @warn-light;
-    border-color: @warn-light;
+  // 小号
+  &.btn-sm {
+    height: 30px;
+    font-size: 13.5px;
   }
-}
-.bar-button.btn-danger {
-  background-color: @danger-color;
-  border-color: @danger-color;
-  color: @white;
-  &:hover {
-    background-color: @danger-light;
-    border-color: @danger-light;
-  }
-}
-.bar-button.btn-link,
-.bar-button.btn-text {
-  box-shadow: none;
-}
-.bar-button.btn-link {
-  background-color: transparent;
-  border-color: transparent;
-  color: @primary-color;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-.bar-button.btn-text {
-  background-color: transparent;
-  border-color: transparent;
-  &:hover {
+
+  // 默认按钮
+  &.btn-default {
     background-color: @gray1;
-    border-color: @gray1;
+    &:hover {
+      border-color: @primary-color;
+      color: @primary-color;
+    }
   }
-}
-.bar-button.btn-block {
-  width: 100%;
-  display: block;
+
+  // 主要按钮
+  &.btn-primary {
+    background-color: @primary-color;
+    border-color: @primary-color;
+    color: @white;
+    &:hover {
+      background-color: @primary-light;
+      border-color: @primary-light;
+    }
+  }
+
+  // 警告按钮
+  &.btn-warn {
+    background-color: @warn-color;
+    border-color: @warn-color;
+    &:hover {
+      background-color: @warn-light;
+      border-color: @warn-light;
+    }
+  }
+
+  // 危险按钮
+  &.btn-danger {
+    background-color: @danger-color;
+    border-color: @danger-color;
+    color: @white;
+    &:hover {
+      background-color: @danger-light;
+      border-color: @danger-light;
+    }
+  }
+
+  // 取消链接按钮和文字按钮的阴影
+  &.btn-link,
+  &.btn-text {
+    box-shadow: none;
+  }
+
+  // 链接按钮
+  &.btn-link {
+    background-color: transparent;
+    border-color: transparent;
+    color: @primary-color;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // 文本按钮
+  &.btn-text {
+    background-color: transparent;
+    border-color: transparent;
+    &:hover {
+      background-color: @gray1;
+      border-color: @gray1;
+    }
+  }
+
+  // 块级按钮
+  &.btn-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  // 禁用按钮
+  &[disabled] {
+    cursor: not-allowed;
+    border-color: @border-color-light;
+    background-color: @gray1;
+    color: @text-color-disabled;
+    &:hover {
+      border-color: @border-color-light;
+      background-color: @gray1;
+      color: @text-color-disabled;
+    }
+  }
+
+  // 圆形按钮
+  &.btn-circle {
+    overflow: hidden;
+    justify-content: center;
+    border-radius: 50%;
+    &.btn-lg {
+      width: 42px;
+      padding: 0;
+    }
+    &.btn-sm {
+      width: 30px;
+      padding: 0;
+    }
+  }
+
+  // 圆角矩形按钮
+  &.btn-round {
+    & {
+      border-radius: 18.5px;
+    }
+    &.btn-lg {
+      border-radius: 21px;
+    }
+    &.btn-sm {
+      border-radius: 15px;
+    }
+  }
 }
