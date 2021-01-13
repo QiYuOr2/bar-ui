@@ -1,0 +1,50 @@
+@import '../../variable.less';
+
+.bar-icon {
+  height: 24px;
+  width: 24px;
+
+  &-sm {
+    height: 20px;
+    width: 20px;
+  }
+  &-lg {
+    height: 34px;
+    width: 34px;
+  }
+  &-loading {
+    animation: rotate 1.8s linear infinite;
+  }
+  .loading {
+    stroke: @primary-color;
+    fill: none;
+    stroke-width: 3;
+    animation: loading 1.5s linear infinite;
+  }
+}
+
+// loading动画
+@keyframes loading {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 130, 200;
+    stroke-dashoffset: -20;
+  }
+  100% {
+    stroke-dasharray: 200, 200;
+    stroke-dashoffset: -150;
+  }
+}
+
+// 旋转动画
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

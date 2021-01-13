@@ -1,0 +1,79 @@
+@import '../../variable.less';
+
+.bar-button {
+  padding: 8px 12px;
+  border-radius: @border-radius-base;
+  border: 1px solid @border-color-base;
+  box-shadow: @shadow-1-down;
+  transition: all 0.4s;
+  font-size: 14px;
+  cursor: pointer;
+  &:focus {
+    outline: 0;
+  }
+}
+.bar-button.btn-lg {
+  font-size: 15px;
+  padding: 10px 15px;
+}
+.bar-button.btn-sm {
+  font-size: 13.5px;
+  padding: 6px 8px;
+}
+.bar-button.btn-default {
+  background-color: @gray1;
+  &:hover {
+    border-color: @primary-color;
+    color: @primary-color;
+  }
+}
+.bar-button.btn-primary {
+  background-color: @primary-color;
+  border-color: @primary-color;
+  color: @white;
+  &:hover {
+    background-color: @primary-light;
+    border-color: @primary-light;
+  }
+}
+.bar-button.btn-warn {
+  background-color: @warn-color;
+  border-color: @warn-color;
+  &:hover {
+    background-color: @warn-light;
+    border-color: @warn-light;
+  }
+}
+.bar-button.btn-danger {
+  background-color: @danger-color;
+  border-color: @danger-color;
+  color: @white;
+  &:hover {
+    background-color: @danger-light;
+    border-color: @danger-light;
+  }
+}
+.bar-button.btn-link,
+.bar-button.btn-text {
+  box-shadow: none;
+}
+.bar-button.btn-link {
+  background-color: transparent;
+  border-color: transparent;
+  color: @primary-color;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.bar-button.btn-text {
+  background-color: transparent;
+  border-color: transparent;
+  &:hover {
+    background-color: @gray1;
+    border-color: @gray1;
+  }
+}
+.bar-button.btn-block {
+  width: 100%;
+  display: block;
+}
