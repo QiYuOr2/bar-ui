@@ -5,13 +5,24 @@
       sub-title="演示页子标题"
       scroll-target="container"
       left-text="返回"
-      @click-left="handleClick"
-      @click-right="handleClick2"
+      @click-left.prevent.stop="handleClick"
       :left-arrow="true"
       fixed
     >
-      <template #right>你好</template>
+      <template #right>
+        <bar-dropdown
+          button-title="导航"
+          button-type="primary"
+          :button-shadow="false"
+          :show-icon="false"
+        >
+          <bar-item icon="heart" type="dropdown" v-for="item in 5" :key="item">
+            这是下拉菜单{{ item }}
+          </bar-item>
+        </bar-dropdown>
+      </template>
     </bar-header>
+
     <bar-section title="加载图标">
       <bar-icon name="loading" size="lg" />
       <bar-icon name="loading" />
@@ -19,6 +30,9 @@
     </bar-section>
     <bar-section title="其他图标">
       <bar-icon name="left" size="sm" />
+      <bar-icon name="down" size="sm" />
+      <bar-icon name="up" size="sm" />
+      <bar-icon name="right" size="sm" />
     </bar-section>
     <bar-section title="按钮组件">
       <bar-button>default按钮</bar-button>
@@ -34,7 +48,7 @@
       <bar-button type="primary" size="sm" shape="circle">圆</bar-button>
       <bar-button type="primary" size="sm" shape="round">圆角</bar-button>
       <bar-button block @click="handleClick">block按钮</bar-button>
-      <bar-button block shape="round" @click="handleClick">
+      <bar-button block shape="round" @click="handleClick2">
         block round按钮
       </bar-button>
     </bar-section>
@@ -76,6 +90,48 @@
         线
       </div>
     </bar-section>
+    <bar-section title="下拉菜单组件">
+      <bar-dropdown
+        button-title="基本使用"
+        button-type="primary"
+        :button-shadow="false"
+        :show-icon="false"
+        dropdown-position="rightdown"
+      >
+        <bar-item
+          type="dropdown"
+          v-for="(item, index) in ['吃饭', '睡觉', '打豆豆']"
+          :key="index"
+        >
+          {{ item }}
+        </bar-item>
+      </bar-dropdown>
+      <bar-dropdown
+        button-title="有箭头"
+        button-type="primary"
+        :button-shadow="false"
+        dropdown-position="rightdown"
+      >
+        <bar-item
+          :icon="item % 2 ? 'up' : 'down'"
+          type="dropdown"
+          v-for="item in 5"
+          :key="item"
+        >
+          这是下拉菜单{{ item }}
+        </bar-item>
+      </bar-dropdown>
+      <bar-dropdown
+        button-title="适用按钮样式"
+        button-type="danger"
+        :button-shadow="false"
+        dropdown-position="rightdown"
+      >
+        <bar-item icon="heart" type="dropdown" v-for="item in 4" :key="item">
+          这是下拉菜单{{ item }}
+        </bar-item>
+      </bar-dropdown>
+    </bar-section>
     <bar-section title="卡片组件">
       <bar-card style="margin-bottom: 1rem" title="卡片标题">卡片内容</bar-card>
       <bar-card-stack
@@ -92,25 +148,31 @@
 
 <script>
 import { defineComponent } from 'vue';
-import header from '../../components/header';
-import cardStack from '../../components/card-stack';
-import card from '../../components/card';
-import button from '../../components/button';
-import icon from '../../components/icon';
-import section from '../../components/section';
-import divider from '../../components/divider';
+import {
+  // Button,
+  Card,
+  CardStack,
+  // Header,
+  // Icon,
+  Section,
+  Divider,
+} from 'bar-ui';
+import { Button, Dropdown, Header, Icon, Item } from '../../components';
 
 export default {
   name: 'example',
   components: {
-    [card.name]: card,
-    [cardStack.name]: cardStack,
-    [button.name]: button,
-    [icon.name]: icon,
-    [section.name]: section,
-    [divider.name]: divider,
-    [header.name]: header,
+    [Card.name]: Card,
+    [CardStack.name]: CardStack,
+    [Button.name]: Button,
+    [Icon.name]: Icon,
+    [Section.name]: Section,
+    [Divider.name]: Divider,
+    [Header.name]: Header,
+    [Dropdown.name]: Dropdown,
+    [Item.name]: Item,
   },
+
   setup() {
     const data = [
       { title: '卡1', content: '卡片堆叠滑动效果只有手机端有用' },

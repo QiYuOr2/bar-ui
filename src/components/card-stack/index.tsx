@@ -33,7 +33,7 @@ export type CardStyle = {
   left: number;
 };
 
-export default defineComponent({
+const CardStack = defineComponent({
   name: 'bar-card-stack',
   components: {
     Card,
@@ -146,3 +146,5 @@ export default defineComponent({
     );
   },
 });
+
+export default CardStack;

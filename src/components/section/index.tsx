@@ -1,7 +1,7 @@
-import { defineComponent } from 'vue';
+import { App, defineComponent } from 'vue';
 import './index.less';
 
-export default defineComponent({
+const Section = defineComponent({
   name: 'bar-section',
   props: {
     title: String,
@@ -20,3 +20,9 @@ export default defineComponent({
     );
   },
 });
+
+Section.install = (app: App) => {
+  app.component(Section.name, Section);
+};
+
+export default Section;

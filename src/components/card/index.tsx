@@ -1,7 +1,7 @@
-import { defineComponent } from 'vue';
+import { App, defineComponent } from 'vue';
 import './index.less';
 
-export default defineComponent({
+const Card = defineComponent({
   name: 'bar-card',
   props: {
     title: String,
@@ -60,3 +60,9 @@ export default defineComponent({
     );
   },
 });
+
+Card.install = (app: App) => {
+  app.component(Card.name, Card);
+};
+
+export default Card;

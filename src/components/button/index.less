@@ -1,4 +1,4 @@
-@import '../../variable.less';
+@import '../variable.less';
 
 .bar-button {
   display: inline-flex;
@@ -27,6 +27,21 @@
     span {
       margin-left: 24px;
     }
+    &.btn-icon-right {
+      .bar-icon {
+        position: absolute;
+        right: 0;
+      }
+      span {
+        margin-left: 0;
+        margin-right: 24px;
+      }
+    }
+    &.btn-icon-xs {
+      span {
+        margin-right: 16px;
+      }
+    }
   }
 
   // 大号
@@ -35,10 +50,14 @@
     font-size: 15px;
     padding: 0 16px;
   }
+  &.btn-normal {
+    padding: 0 12px;
+  }
   // 小号
   &.btn-sm {
     height: 30px;
     font-size: 13.5px;
+    padding: 0 10px;
   }
 
   // 默认按钮

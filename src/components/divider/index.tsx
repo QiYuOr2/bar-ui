@@ -1,11 +1,11 @@
-import { defineComponent, PropType } from 'vue';
+import { App, defineComponent, PropType } from 'vue';
 import './index.less';
 
 export type TextPosition = 'left' | 'right';
 
 export type DividerType = 'horizontal' | 'vertical';
 
-export default defineComponent({
+const Divider = defineComponent({
   name: 'bar-divider',
   props: {
     position: String as PropType<TextPosition>,
@@ -41,3 +41,9 @@ export default defineComponent({
     return () => renderDivider();
   },
 });
+
+Divider.install = (app: App) => {
+  app.component(Divider.name, Divider);
+};
+
+export default Divider;

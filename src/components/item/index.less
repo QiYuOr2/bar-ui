@@ -1,0 +1,21 @@
+@import '../variable.less';
+
+.bar-item {
+  &.bar-item-dropdown {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 0 12px;
+
+    transition: background-color 0.3s;
+
+    .bar-icon {
+      margin-right: 5px;
+    }
+
+    &:hover {
+      background-color: @gray1;
+      transition: background-color 0.3s;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { ref, reactive, onMounted, Ref } from 'vue';
+import { ref, reactive, Ref } from 'vue';
 import { CardAnimateEvent, CardData, CardDragDirection, CardStyle } from '.';
 
 type AnimateCardStyle = {
@@ -139,9 +139,9 @@ export default function useCardStackAnimate(
   };
 
   // 初始加载数据
-  onMounted(() => {
-    data && changeCardData(data);
-  });
+  if (data) {
+    changeCardData(data);
+  }
 
   const handleTouchStart = (e: TouchEvent) => {
     const currentTouch = e.touches[0];

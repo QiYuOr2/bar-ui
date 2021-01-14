@@ -1,8 +1,8 @@
-import { defineComponent } from 'vue';
+import { App, defineComponent } from 'vue';
 import icon from '../icon';
 import './index.less';
 
-export default defineComponent({
+const Header = defineComponent({
   name: 'bar-header',
   components: {
     icon,
@@ -26,6 +26,7 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    // 需要滚动的元素ID
     scrollTarget: {
       type: String,
     },
@@ -53,6 +54,9 @@ export default defineComponent({
     const handleClickLeft = (event: MouseEvent) => {
       emit('clickLeft', event);
     };
+    const handleClickCenter = () => {
+      props.scrollTarget && backTop(props.scrollTarget);
+    };
     const handleClickRight = (event: MouseEvent) => {
       emit('clickRight', event);
     };
@@ -75,7 +79,7 @@ export default defineComponent({
     };
 
     return () => (
-      <>
+      <div>
         <header
           class="bar-header"
           style={{
@@ -86,12 +90,12 @@ export default defineComponent({
             left: 0,
             zIndex: 2999,
           }}
-          onClick={() => {
-            props.scrollTarget && backTop(props.scrollTarget);
+          onClick={(e) => {
+            if (e.target === e.currentTarget) handleClickCenter();
           }}
         >
           {renderLeft()}
-          <div class="bar-header__center">
+          <div class="bar-header__center" onClick={handleClickCenter}>
             <p class="header__title">{props.title}</p>
             {props.subTitle && (
               <p class="header__sub-title">{props.subTitle}</p>
@@ -102,7 +106,13 @@ export default defineComponent({
           </div>
         </header>
         {props.fixed && <div style="height: calc(46px)"></div>}
-      </>
+      </div>
     );
   },
 });
+
+Header.install = (app: App) => {
+  app.component(Header.name, Header);
+};
+
+export default Header;
