@@ -1,5 +1,5 @@
 import { PropType, defineComponent } from 'vue';
-import numberToLetter from '../../utils/numberToLetter';
+import numberToLetter from '../utils/numberToLetter';
 import Card from '../card';
 import useCardStackAnimate from './useCardStackAnimate';
 import './index.less';

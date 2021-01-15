@@ -3,7 +3,7 @@
     <bar-header
       title="演示页"
       sub-title="演示页子标题"
-      scroll-target="container"
+      scroll-target="#container"
       left-text="返回"
       @click-left.prevent.stop="handleClick"
       :left-arrow="true"
@@ -16,8 +16,23 @@
           :button-shadow="false"
           :show-icon="false"
         >
-          <bar-item icon="heart" type="dropdown" v-for="item in 5" :key="item">
-            这是下拉菜单{{ item }}
+          <bar-item
+            :class="['anchor', { active: active === index }]"
+            type="dropdown"
+            v-for="(item, index) in [
+              '加载图标',
+              '其他图标',
+              '按钮组件',
+              '页头组件',
+              '分割线组件',
+              '下拉菜单组件',
+              '轻提示组件',
+              '卡片组件',
+            ]"
+            :key="index"
+            @click="scrollTo(index + 1)"
+          >
+            {{ item }}
           </bar-item>
         </bar-dropdown>
       </template>
@@ -33,6 +48,11 @@
       <bar-icon name="down" size="sm" />
       <bar-icon name="up" size="sm" />
       <bar-icon name="right" size="sm" />
+      <bar-icon name="heart" size="sm" />
+      <bar-icon name="success" size="sm" />
+      <bar-icon name="info" size="sm" />
+      <bar-icon name="warn" size="sm" />
+      <bar-icon name="error" size="sm" />
     </bar-section>
     <bar-section title="按钮组件">
       <bar-button>default按钮</bar-button>
@@ -111,6 +131,8 @@
         button-type="primary"
         :button-shadow="false"
         dropdown-position="rightdown"
+        @open="handleClick2"
+        @close="handleClick1"
       >
         <bar-item
           :icon="item % 2 ? 'up' : 'down'"
@@ -132,6 +154,12 @@
         </bar-item>
       </bar-dropdown>
     </bar-section>
+    <bar-section title="轻提示组件">
+      <bar-button @click="showMessage1">info</bar-button>
+      <bar-button type="success" @click="showMessage2">success</bar-button>
+      <bar-button type="warn" @click="showMessage3">warn</bar-button>
+      <bar-button type="danger" @click="showMessage4">error</bar-button>
+    </bar-section>
     <bar-section title="卡片组件">
       <bar-card style="margin-bottom: 1rem" title="卡片标题">卡片内容</bar-card>
       <bar-card-stack
@@ -147,7 +175,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 import {
   // Button,
   Card,
@@ -157,7 +185,15 @@ import {
   Section,
   Divider,
 } from 'bar-ui';
-import { Button, Dropdown, Header, Icon, Item } from '../../components';
+import {
+  Button,
+  Dropdown,
+  Header,
+  Icon,
+  Item,
+  Message,
+  useAnchor,
+} from '../../components';
 
 export default {
   name: 'example',
@@ -185,22 +221,48 @@ export default {
     ];
 
     const handleClick = (e) => {
-      console.log(e);
+      Message.info('test');
+    };
+    const handleClick1 = (e) => {
+      console.log('close');
     };
     const handleClick2 = (e) => {
       console.log(2, e);
     };
 
+    const showMessage1 = () => {
+      Message.info('info');
+    };
+    const showMessage2 = () => {
+      Message.success('success');
+    };
+    const showMessage3 = () => {
+      Message.warn('warn');
+    };
+    const showMessage4 = () => {
+      Message.error('error');
+    };
+
     return {
       data,
       handleClick,
+      handleClick1,
       handleClick2,
+      showMessage1,
+      showMessage2,
+      showMessage3,
+      showMessage4,
+      ...useAnchor('.bar-section', document.getElementById('container'), -60),
     };
   },
 };
 </script>
 <style lang="less">
+@import '../../components/variable.less';
 .example-container {
+  .active {
+    color: @primary-color;
+  }
   // padding: 1rem;
   & .bar-section .content > * {
     margin-bottom: 1rem;

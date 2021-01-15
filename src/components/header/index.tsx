@@ -41,8 +41,8 @@ const Header = defineComponent({
   },
   emits: ['clickLeft', 'clickRight'],
   setup(props, { emit, slots }) {
-    const backTop = (id: string) => {
-      const target = document.getElementById(id);
+    const backTop = (selector: string) => {
+      const target = document.querySelector(selector);
       if (target?.scrollTop !== 0) {
         target?.scrollTo({
           top: 0,

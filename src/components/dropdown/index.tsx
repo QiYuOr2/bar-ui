@@ -1,4 +1,4 @@
-import { defineComponent, ref, PropType, App } from 'vue';
+import { defineComponent, ref, PropType, App, watch } from 'vue';
 import { Button } from '../';
 import { ButtonType } from '../button';
 import './index.less';
@@ -30,9 +30,14 @@ const Dropdown = defineComponent({
       type: String as PropType<DropdownPosition>,
       default: 'leftDown',
     },
+    onOpen: Function as PropType<(event: MouseEvent) => void>,
+    onClose: Function as PropType<(event: MouseEvent) => void>,
   },
-  setup(props, { slots }) {
+  setup(props, { emit, slots }) {
     const visible = ref(false);
+
+    const handleOpen = (event: MouseEvent) => emit('open', event);
+    const handleClose = (event: MouseEvent) => emit('close', event);
 
     const renderDropdown = () => {
       return (
@@ -50,6 +55,7 @@ const Dropdown = defineComponent({
     const handleWrapClick = (event: MouseEvent) => {
       if (event.target === event.currentTarget) {
         visible.value = false;
+        handleClose(event);
       }
     };
 
@@ -63,7 +69,10 @@ const Dropdown = defineComponent({
           iconSize="xs"
           iconPosition="right"
           style={!props.buttonShadow ? { boxShadow: 'none' } : {}}
-          onClick={() => (visible.value = !visible.value)}
+          onClick={(e) => {
+            visible.value = !visible.value;
+            visible.value ? handleOpen(e) : handleClose(e);
+          }}
         >
           {props.buttonTitle}
         </Button>

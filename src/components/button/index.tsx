@@ -5,6 +5,7 @@ import './index.less';
 export type ButtonType =
   | 'default'
   | 'primary'
+  | 'success'
   | 'warn'
   | 'danger'
   | 'link'
