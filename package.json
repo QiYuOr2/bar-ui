@@ -5,12 +5,12 @@
   "files": [
     "lib"
   ],
-  "main": "lib/index.js",
   "scripts": {
     "dev": "vite",
     "build": "vuedx-typecheck . && vite build",
     "build:pkg": "rollup -c",
-    "example": "npm link && npm install && npm link bar-ui"
+    "example": "npm link && npm install && npm link bar-ui",
+    "new": "hygen component new"
   },
   "dependencies": {
     "less": "^4.1.0",
@@ -23,7 +23,6 @@
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
-    "@rollup/plugin-typescript": "^8.1.0",
     "@vitejs/plugin-vue": "^1.0.4",
     "@vitejs/plugin-vue-jsx": "^1.0.1",
     "@vue/babel-plugin-jsx": "^1.0.1",
@@ -31,9 +30,11 @@
     "@vuedx/typecheck": "^0.4.1",
     "@vuedx/typescript-plugin-vue": "^0.4.1",
     "acorn-jsx": "^5.3.1",
+    "hygen": "^6.0.4",
     "rollup-plugin-esbuild": "^2.6.1",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.29.0",
     "typescript": "^4.1.3",
     "vite": "^2.0.0-beta.12"
   }

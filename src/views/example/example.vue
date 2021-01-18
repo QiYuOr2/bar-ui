@@ -67,6 +67,7 @@
       <bar-button type="primary" size="sm">small按钮</bar-button>
       <bar-button type="primary" size="sm" shape="circle">圆</bar-button>
       <bar-button type="primary" size="sm" shape="round">圆角</bar-button>
+      <bar-button type="future">future按钮</bar-button>
       <bar-button block @click="handleClick">block按钮</bar-button>
       <bar-button block shape="round" @click="handleClick2">
         block round按钮
@@ -160,9 +161,43 @@
       <bar-button type="warn" @click="showMessage3">warn</bar-button>
       <bar-button type="danger" @click="showMessage4">error</bar-button>
     </bar-section>
-    <bar-section title="卡片组件">
+    <bar-section title="折叠面板组件">
+      <bar-collapse>
+        <bar-panel title="基本使用" :index="1" @open="openPanel">
+          代码写出来是给人看的，附带能够在机器上运行
+        </bar-panel>
+        <bar-panel :index="2">
+          <template #title>slot标题</template>
+          测试2
+        </bar-panel>
+        <bar-panel title="标题3" :index="3">
+          <bar-collapse :accordion="true" v-model="activeIndex">
+            <bar-panel
+              :title="`双向绑定activeIndex: ${activeIndex}`"
+              :index="1"
+            >
+              代码写出来是给人看的，附带能够在机器上运行
+            </bar-panel>
+            <bar-panel title="标题2" :index="2">测试2</bar-panel>
+            <bar-panel title="标题3" :index="3">测试3</bar-panel>
+          </bar-collapse>
+        </bar-panel>
+      </bar-collapse>
+      <bar-collapse :accordion="true" v-model="activeIndex">
+        <bar-panel
+          :title="`手风琴模式，activeIndex: ${activeIndex}`"
+          :index="1"
+        >
+          代码写出来是给人看的，附带能够在机器上运行
+        </bar-panel>
+        <bar-panel title="标题2" :index="2">测试2</bar-panel>
+        <bar-panel title="标题3" :index="3">测试3</bar-panel>
+      </bar-collapse>
+    </bar-section>
+    <bar-section title="卡片组件" class="last-section">
       <bar-card style="margin-bottom: 1rem" title="卡片标题">卡片内容</bar-card>
       <bar-card-stack
+        class="stack"
         :data="data"
         :fly-distance="1000"
         :limit-distance="100"
@@ -174,8 +209,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, onMounted } from 'vue';
+<script lang="ts">
+import { defineComponent, onMounted, ref } from 'vue';
 import {
   // Button,
   Card,
@@ -184,7 +219,7 @@ import {
   // Icon,
   Section,
   Divider,
-} from 'bar-ui';
+} from '../../../lib';
 import {
   Button,
   Dropdown,
@@ -193,6 +228,8 @@ import {
   Item,
   Message,
   useAnchor,
+  Collapse,
+  Panel,
 } from '../../components';
 
 export default {
@@ -207,6 +244,8 @@ export default {
     [Header.name]: Header,
     [Dropdown.name]: Dropdown,
     [Item.name]: Item,
+    [Collapse.name]: Collapse,
+    [Panel.name]: Panel,
   },
 
   setup() {
@@ -220,13 +259,13 @@ export default {
       { title: '卡7', content: '内容7' },
     ];
 
-    const handleClick = (e) => {
+    const handleClick = () => {
       Message.info('test');
     };
-    const handleClick1 = (e) => {
+    const handleClick1 = () => {
       console.log('close');
     };
-    const handleClick2 = (e) => {
+    const handleClick2 = (e: MouseEvent) => {
       console.log(2, e);
     };
 
@@ -243,6 +282,11 @@ export default {
       Message.error('error');
     };
 
+    const activeIndex = ref();
+    const openPanel = () => {
+      console.log(1);
+    };
+
     return {
       data,
       handleClick,
@@ -252,7 +296,9 @@ export default {
       showMessage2,
       showMessage3,
       showMessage4,
-      ...useAnchor('.bar-section', document.getElementById('container'), -60),
+      ...useAnchor('.bar-section', document.getElementById('container')!, -60),
+      activeIndex,
+      openPanel,
     };
   },
 };
@@ -260,6 +306,7 @@ export default {
 <style lang="less">
 @import '../../components/variable.less';
 .example-container {
+  background-color: #fafafb;
   .active {
     color: @primary-color;
   }
@@ -267,6 +314,14 @@ export default {
   & .bar-section .content > * {
     margin-bottom: 1rem;
     margin-right: 1rem;
+  }
+  .last-section {
+    margin-bottom: 0 !important;
+
+    .stack {
+      height: 200px;
+      margin-bottom: 0 !important;
+    }
   }
 }
 </style>

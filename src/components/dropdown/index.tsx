@@ -1,5 +1,5 @@
 import { defineComponent, ref, PropType, App, watch } from 'vue';
-import { Button } from '../';
+import Button from '../button';
 import { ButtonType } from '../button';
 import './index.less';
 

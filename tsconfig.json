@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "declaration": true,
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
@@ -10,5 +11,10 @@
     "types": ["vite/client"],
     "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": [
+    "src/components/**/*.ts",
+    "src/components/**/*.d.ts",
+    "src/components/**/*.tsx",
+    "src/components/**/*.vue"
+  ]
 }

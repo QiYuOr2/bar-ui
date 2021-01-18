@@ -9,6 +9,7 @@ export type ButtonType =
   | 'warn'
   | 'danger'
   | 'link'
+  | 'future'
   | 'text';
 
 export type ButtonSize = 'normal' | 'lg' | 'sm';

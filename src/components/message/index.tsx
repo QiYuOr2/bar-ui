@@ -1,10 +1,10 @@
 import { ComponentPublicInstance, createApp, ref, Teleport } from 'vue';
 import {
-  Message as MessageApp,
+  MessageApp,
   MessageConfig,
   MessageOption,
   MessageType,
-} from './message';
+} from './MessageApp';
 import './index.less';
 
 const DURING = 2500;

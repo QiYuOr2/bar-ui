@@ -1,0 +1,46 @@
+@import '../variable.less';
+
+.bar-collapse {
+  color: @text-color;
+  border-radius: @border-radius-base;
+
+  .bar-icon {
+    transform: rotate(270deg);
+
+    transition: all 0.2s;
+  }
+
+  .bar-panel {
+    &__title {
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: @gray1;
+
+      &.panel-active {
+        transition: all 0.2s;
+        .bar-icon {
+          transform: rotate(360deg);
+        }
+      }
+    }
+    &__content {
+      > div {
+        padding: 8px 14px;
+        background-color: @white;
+      }
+    }
+
+    &:first-child {
+      .bar-panel__title {
+        border-radius: @border-radius-base @border-radius-base 0 0;
+      }
+    }
+    &:last-child {
+      .bar-panel__content {
+        border-radius: 0 0 @border-radius-base @border-radius-base;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { defineComponent, PropType, TransitionGroup } from 'vue';
-import { Icon } from '..';
+import Icon from '../icon';
 
 export type MessageType = 'success' | 'info' | 'warn' | 'error';
 
@@ -13,7 +13,7 @@ export interface MessageConfig extends MessageOption {
   ref: number;
 }
 
-export const Message = defineComponent({
+export const MessageApp = defineComponent({
   name: 'bar-message',
   props: {
     options: {

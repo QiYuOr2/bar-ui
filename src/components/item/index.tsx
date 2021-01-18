@@ -1,5 +1,5 @@
 import { App, defineComponent, PropType } from 'vue';
-import { Icon } from '..';
+import Icon from '../icon';
 import { IconName } from '../icon';
 import './index.less';
 
