@@ -27,6 +27,8 @@
               '分割线组件',
               '下拉菜单组件',
               '轻提示组件',
+              '折叠面板组件',
+              '模态框组件',
               '卡片组件',
             ]"
             :key="index"
@@ -53,6 +55,7 @@
       <bar-icon name="info" size="sm" />
       <bar-icon name="warn" size="sm" />
       <bar-icon name="error" size="sm" />
+      <bar-icon name="close" size="sm" />
     </bar-section>
     <bar-section title="按钮组件">
       <bar-button>default按钮</bar-button>
@@ -194,6 +197,11 @@
         <bar-panel title="标题3" :index="3">测试3</bar-panel>
       </bar-collapse>
     </bar-section>
+    <bar-section title="模态框组件">
+      <bar-button @click="visible = true">基本模态框</bar-button>
+      <bar-button @click="notice = true">通知框</bar-button>
+      <bar-button @click="noMask = true">无遮罩</bar-button>
+    </bar-section>
     <bar-section title="卡片组件" class="last-section">
       <bar-card style="margin-bottom: 1rem" title="卡片标题">卡片内容</bar-card>
       <bar-card-stack
@@ -206,6 +214,20 @@
       >
       </bar-card-stack>
     </bar-section>
+    <bar-modal title="模态框标题" v-model="visible">模态框</bar-modal>
+    <bar-modal type="notice" title="通知" v-model="notice">
+      <div style="margin-bottom: 10px">
+        1.
+        更新公告更新公告更新公告更新公告更新公告更新公告更新公告更新公告更新公告更新公告更新公告更新公告更新公
+      </div>
+      <div>
+        2.
+        更新公告更新公告更新公告更新公告更新公告更新公告更新公告更新公告更新公告更新公告更新公告更新公告更
+      </div>
+    </bar-modal>
+    <bar-modal title="模态框标题" v-model="noMask" :show-mask="false">
+      模态框
+    </bar-modal>
   </div>
 </template>
 
@@ -230,9 +252,10 @@ import {
   useAnchor,
   Collapse,
   Panel,
+  Modal,
 } from '../../components';
 
-export default {
+export default defineComponent({
   name: 'example',
   components: {
     [Card.name]: Card,
@@ -246,6 +269,7 @@ export default {
     [Item.name]: Item,
     [Collapse.name]: Collapse,
     [Panel.name]: Panel,
+    [Modal.name]: Modal,
   },
 
   setup() {
@@ -287,6 +311,10 @@ export default {
       console.log(1);
     };
 
+    const visible = ref(false);
+    const notice = ref(false);
+    const noMask = ref(false);
+
     return {
       data,
       handleClick,
@@ -299,9 +327,12 @@ export default {
       ...useAnchor('.bar-section', document.getElementById('container')!, -60),
       activeIndex,
       openPanel,
+      visible,
+      notice,
+      noMask,
     };
   },
-};
+});
 </script>
 <style lang="less">
 @import '../../components/variable.less';

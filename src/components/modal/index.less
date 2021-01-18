@@ -1,0 +1,118 @@
+@import '../variable.less';
+
+.bar-modal {
+  p {
+    padding: 0;
+    margin: 0;
+  }
+  color: @text-color;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 350px;
+  max-width: 90%;
+  min-height: 9rem;
+  background-color: @white;
+  transform: translateY(-50%);
+  border-radius: @border-radius-base;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9010;
+  box-shadow: @shadow-1-super-heavy;
+
+  &.no-mask {
+    border: 1px solid @border-color-base;
+    box-shadow: @shadow-1-heavy;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.5em 1em;
+    background-color: @gray2;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+
+    font-size: @text-lg;
+    font-weight: bold;
+
+    .bar-icon {
+      width: 16px;
+      height: 16px;
+      color: @text-color-secondary;
+      cursor: pointer;
+      transition: all 0.25s;
+      &:hover {
+        transform: rotate(180deg);
+        transition: all 0.25s;
+      }
+    }
+  }
+
+  &__content {
+    font-size: @text-lg;
+    margin-bottom: auto;
+    padding: 0.5em 1em;
+    &.notice {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__footer {
+    border-top: 1px solid @border-color-base;
+    padding: 0.4em 1em;
+    text-align: right;
+    .bar-button {
+      height: 24px;
+      margin-left: 1rem;
+    }
+    &.notice {
+      border-top: 0;
+      .bar-button {
+        height: 30px;
+        margin-left: 0;
+        text-align: center;
+        color: @primary-color;
+      }
+    }
+  }
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9001;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: @mask-color;
+  }
+
+  &-wrapper {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9001;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: translate(-50%, -600px);
+  }
+
+  &-enter-active,
+  &-leave-active {
+    transition: transform 0.25s;
+  }
+}

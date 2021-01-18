@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+import example from './views/example/example.vue';
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -8,8 +9,12 @@ const router = createRouter({
       redirect: '/example',
     },
     {
+      path: '/home',
+      redirect: '/',
+    },
+    {
       path: '/example',
-      component: () => import('./views/example/example.vue'),
+      component: example,
     },
   ],
 });
