@@ -1,0 +1,132 @@
+@import '../variable.less';
+
+.bar-input {
+  position: relative;
+  color: @text-color;
+  font-size: @text-normal;
+  box-sizing: border-box;
+
+  &__inner {
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+
+    height: 35px;
+    background-color: @white;
+    padding: 0 8px;
+    border-radius: @border-radius-base;
+    box-shadow: @shadow-1-down;
+    border: 2px solid @border-color-light;
+
+    transition: border-color 0.4s;
+    &::placeholder {
+      color: @text-color-secondary;
+      transform: translateY(2px);
+    }
+
+    &:focus {
+      border-color: @primary-color;
+    }
+
+    &.inline {
+      width: unset;
+    }
+
+    &.fail {
+      border-color: @danger-color;
+      color: @danger-color;
+      &::placeholder {
+        color: @danger-light;
+      }
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      color: @text-color-disabled;
+      background-color: @gray1;
+      border: 1px solid @border-color-base;
+      &::placeholder {
+        color: @text-color-disabled;
+      }
+    }
+
+    &.has-prefix-icon {
+      padding-left: 30px;
+    }
+    &.has-suffix-icon {
+      padding-right: 30px;
+    }
+  }
+
+  &.is-inline {
+    display: inline-block;
+  }
+
+  &__prefix,
+  &__suffix {
+    position: absolute;
+    width: 25px;
+    height: 35px;
+    padding-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .bar-icon {
+      color: @text-color-secondary;
+      width: 20px;
+    }
+  }
+
+  &__suffix {
+    top: 0;
+    right: 0;
+    padding-right: 5px;
+  }
+
+  // 前缀存在且非icon
+  // 后缀存在且非icon
+  &.has-prefix,
+  &.has-suffix {
+    display: flex;
+    background-color: @white;
+    border-radius: @border-radius-base;
+    box-shadow: @shadow-1-heavy;
+    border: 2px solid @border-color-light;
+    .bar-input {
+      &__prefix-content,
+      &__suffix-content {
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        padding: 0 6px;
+        background-color: @gray1;
+        color: @text-color-secondary;
+      }
+      &__inner {
+        background-color: transparent;
+        padding: 0 8px;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
+      }
+    }
+  }
+
+  &.has-prefix {
+    .bar-input {
+      &__prefix-content {
+        border-right: 1px solid @border-color-base;
+      }
+    }
+  }
+
+  &.has-suffix {
+    .bar-input {
+      &__suffix-content {
+        border-left: 1px solid @border-color-base;
+      }
+    }
+  }
+}

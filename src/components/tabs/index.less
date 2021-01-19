@@ -1,0 +1,88 @@
+@import '../variable.less';
+
+.bar-tabs {
+  color: @text-color;
+  font-size: @text-normal;
+  background-color: @white;
+  border-radius: @border-radius-base;
+
+  &__label {
+    border-radius: @border-radius-base @border-radius-base 0 0;
+    border-collapse: collapse;
+    border-bottom: 1px solid @border-color-base;
+    margin-bottom: 10px;
+    > div {
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px 14px;
+      margin-bottom: -1px;
+      border: 1px solid @border-color-base;
+      border-right: 0;
+      border-bottom: 1px solid transparent;
+      transition: color 0.4s;
+      &:first-child {
+        border-radius: @border-radius-base 0 0 0;
+      }
+      &:last-child {
+        border-right: 1px solid @border-color-base;
+        border-radius: 0 @border-radius-base 0 0;
+      }
+      &:hover {
+        color: @primary-color;
+      }
+      &.tab-active {
+        color: @primary-color;
+        border-bottom-color: @white;
+        background-color: @white;
+      }
+      &.tab-disabled {
+        background-color: @gray1;
+        color: @text-color-disabled;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &.tabs-vertical {
+    display: flex;
+    .bar-tabs {
+      &__label {
+        border: 0;
+        border-right: 1px solid @border-color-base;
+        margin-bottom: 0;
+        margin-right: 10px;
+        > div {
+          display: block;
+          border-right: 1px solid transparent;
+          margin-right: -1px;
+          margin-bottom: 0;
+          &:last-child {
+            border-bottom: 1px solid @border-color-base;
+            border-radius: 0 0 0 @border-radius-base;
+          }
+          &.tab-active {
+            color: @primary-color;
+            border-right-color: @white;
+            background-color: @white;
+          }
+        }
+      }
+    }
+  }
+
+  &.tabs-underline {
+    .bar-tabs {
+      &__label {
+        > div {
+          border: 0;
+          border-bottom: 2px solid transparent;
+          &.tab-active {
+            color: @primary-color;
+            border-bottom-color: @primary-color;
+            background-color: @white;
+          }
+        }
+      }
+    }
+  }
+}

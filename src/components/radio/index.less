@@ -1,0 +1,49 @@
+@import '../variable.less';
+
+.bar-radio {
+  display: inline-block;
+  color: @text-color;
+  margin-right: 10px;
+  label {
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    display: none;
+  }
+
+  &__circle {
+    cursor: pointer;
+
+    box-sizing: border-box;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    border-radius: 50%;
+    border: 2px solid @border-color-base;
+    position: relative;
+
+    &.active {
+      background-color: @primary-color;
+      border-color: @primary-dark;
+      &::after {
+        cursor: pointer;
+
+        content: '';
+        width: 7px;
+        height: 7px;
+        background-color: @white;
+        border-radius: 50%;
+        position: absolute;
+        left: 4.5px;
+        top: 4.5px;
+      }
+    }
+  }
+
+  &__text {
+    cursor: pointer;
+  }
+}

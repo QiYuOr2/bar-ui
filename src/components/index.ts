@@ -12,5 +12,10 @@ export { default as Collapse } from './collapse';
 export { default as Panel } from './collapse/panel';
 export { default as Modal } from './modal';
 export { default as Dialog } from './dialog';
+export { default as Tabs } from './tabs';
+export { default as Tab } from './tabs/tab';
+export { default as Input } from './input';
+export { default as Radio } from './radio';
+export { default as RadioGroup } from './radio/radioGroup';
 
 export { default as useAnchor } from './useAnchor';

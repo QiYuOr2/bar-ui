@@ -56,12 +56,12 @@ export default {
     createDialog({ ...options, type: 'notice' });
   },
   success: (options: DialogOptions) => {
-    createDialog({ ...options, type: 'notice' }, 'success');
+    createDialog({ ...options }, 'success');
   },
   warn: (options: DialogOptions) => {
-    createDialog({ ...options, type: 'notice' }, 'warn');
+    createDialog({ ...options }, 'warn');
   },
   danger: (options: DialogOptions) => {
-    createDialog({ ...options, type: 'notice' }, 'error');
+    createDialog({ ...options }, 'error');
   },
 };

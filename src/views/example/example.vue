@@ -23,12 +23,15 @@
               '加载图标',
               '其他图标',
               '按钮组件',
+              '输入框组件',
+              '单选框组件',
               '页头组件',
               '分割线组件',
               '下拉菜单组件',
               '轻提示组件',
               '折叠面板组件',
               '模态框组件',
+              '标签栏组件',
               '卡片组件',
             ]"
             :key="index"
@@ -75,6 +78,30 @@
       <bar-button block shape="round" @click="handleClick2">
         block round按钮
       </bar-button>
+    </bar-section>
+    <bar-section title="输入框组件">
+      <bar-input
+        v-model="input"
+        placeholder="请输入文本，可以加icon"
+        prefix-icon="success"
+        suffix-icon="error"
+      />
+      <bar-input placeholder="只能输入数字" type="number">
+        <template #prefix>你好</template>
+      </bar-input>
+      <bar-input placeholder="请输入密码" type="password">
+        <template #suffix>不准偷看</template>
+      </bar-input>
+      <bar-input placeholder="有错误" has-fail />
+      <bar-input placeholder="不可用" disabled />
+      <bar-input placeholder="只读" readonly />
+      <bar-input placeholder="行内输入框" inline />
+    </bar-section>
+    <bar-section title="单选框组件">
+      <bar-radio-group>
+        <bar-radio name="test" value="1">测试1</bar-radio>
+        <bar-radio name="test" value="2">测试2</bar-radio>
+      </bar-radio-group>
     </bar-section>
     <bar-section title="页头组件">
       <bar-header title="普通页头" />
@@ -203,6 +230,23 @@
       <bar-button @click="noMask = true">无遮罩</bar-button>
       <bar-button @click="showDialog">编程式</bar-button>
     </bar-section>
+    <bar-section title="标签栏组件">
+      <bar-tabs v-model="tabActive">
+        <bar-tab :index="1" title="水平标签栏">标签内容1</bar-tab>
+        <bar-tab :index="2" :disabled="true" title="禁用">标签内容2</bar-tab>
+        <bar-tab :index="3" title="标签3">标签内容3</bar-tab>
+      </bar-tabs>
+      <bar-tabs type="underline">
+        <bar-tab :index="1" title="下划线样式">标签内容1</bar-tab>
+        <bar-tab :index="2" title="标签2">标签内容2</bar-tab>
+        <bar-tab :index="3" title="标签3">标签内容3</bar-tab>
+      </bar-tabs>
+      <bar-tabs mode="vertical">
+        <bar-tab :index="1" title="垂直标签栏">标签内容1</bar-tab>
+        <bar-tab :index="2" title="标签2">标签内容2</bar-tab>
+        <bar-tab :index="3" title="标签3">标签内容3</bar-tab>
+      </bar-tabs>
+    </bar-section>
     <bar-section title="卡片组件" class="last-section">
       <bar-card style="margin-bottom: 1rem" title="卡片标题">卡片内容</bar-card>
       <bar-card-stack
@@ -233,7 +277,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, onMounted, ref, watch } from 'vue';
 import {
   // Button,
   Card,
@@ -255,6 +299,11 @@ import {
   Panel,
   Modal,
   Dialog,
+  Tabs,
+  Tab,
+  Input,
+  Radio,
+  RadioGroup,
 } from '../../components';
 
 export default defineComponent({
@@ -272,6 +321,11 @@ export default defineComponent({
     [Collapse.name]: Collapse,
     [Panel.name]: Panel,
     [Modal.name]: Modal,
+    [Tabs.name]: Tabs,
+    [Tab.name]: Tab,
+    [Input.name]: Input,
+    [Radio.name]: Radio,
+    [RadioGroup.name]: RadioGroup,
   },
 
   setup() {
@@ -319,6 +373,7 @@ export default defineComponent({
 
     const showDialog = () => {
       Dialog.danger({
+        type: 'notice',
         title: '你好',
         content: '你好你你好你好你好',
         onOk: () => {
@@ -326,6 +381,12 @@ export default defineComponent({
         },
       });
     };
+
+    const tabActive = ref(1);
+
+    const input = ref('');
+
+    watch(input, (v) => console.log(v));
 
     return {
       data,
@@ -343,6 +404,8 @@ export default defineComponent({
       notice,
       noMask,
       showDialog,
+      tabActive,
+      input,
     };
   },
 });
