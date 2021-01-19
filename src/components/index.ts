@@ -11,5 +11,6 @@ export { default as Message } from './message';
 export { default as Collapse } from './collapse';
 export { default as Panel } from './collapse/panel';
 export { default as Modal } from './modal';
+export { default as Dialog } from './dialog';
 
 export { default as useAnchor } from './useAnchor';

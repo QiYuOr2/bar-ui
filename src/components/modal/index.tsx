@@ -23,7 +23,6 @@ const Modal = defineComponent({
     showClose: { type: Boolean, default: true },
     cancelText: String,
     okText: String,
-    onClose: Function as PropType<(event: MouseEvent) => void>,
     onCancel: Function as PropType<(event: MouseEvent) => void>,
     onOk: Function as PropType<(event: MouseEvent) => void>,
   },
@@ -33,14 +32,9 @@ const Modal = defineComponent({
       return props.modelValue || isBeforeDisappear.value;
     });
 
-    const handleClose = (event: MouseEvent) => {
-      emit('close', event);
-      emit('update:modelValue', false);
-    };
-
     const handleMashClick = (event: MouseEvent) => {
       if (event.target === event.currentTarget) {
-        emit('close', event);
+        emit('cancel', event);
         emit('update:modelValue', false);
       }
     };
@@ -56,18 +50,18 @@ const Modal = defineComponent({
     };
 
     const renderTitle = (type: ModalType) =>
-      slots.title ? (
-        slots.title()
-      ) : (
-        <div class="bar-modal__title">
-          <span class="text">{props.title}</span>
-          {type !== 'notice' && props.showClose && (
-            <span onClick={handleClose}>
-              <Icon name="close" size="sm" />
-            </span>
-          )}
-        </div>
-      );
+      slots.title
+        ? slots.title()
+        : props.title && (
+            <div class="bar-modal__title">
+              <span class="text">{props.title}</span>
+              {type !== 'notice' && props.showClose && (
+                <span onClick={handleCancel}>
+                  <Icon name="close" size="sm" />
+                </span>
+              )}
+            </div>
+          );
 
     const renderFooter = (type: ModalType) => {
       if (type === 'default')

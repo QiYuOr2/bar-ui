@@ -1,5 +1,28 @@
 @import '../variable.less';
 
-.bar-dialog{
+.bar-dialog {
   color: @text-color;
+  &__content {
+    display: flex;
+    .bar-icon {
+      min-width: 25px;
+      margin-right: 0.5em;
+      margin-left: 0.5rem;
+    }
+    &.dialog-success {
+      .bar-icon {
+        color: @success-color;
+      }
+    }
+    &.dialog-warn {
+      .bar-icon {
+        color: @warn-color;
+      }
+    }
+    &.dialog-error {
+      .bar-icon {
+        color: @danger-color;
+      }
+    }
+  }
 }

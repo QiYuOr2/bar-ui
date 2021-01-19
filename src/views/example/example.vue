@@ -201,6 +201,7 @@
       <bar-button @click="visible = true">基本模态框</bar-button>
       <bar-button @click="notice = true">通知框</bar-button>
       <bar-button @click="noMask = true">无遮罩</bar-button>
+      <bar-button @click="showDialog">编程式</bar-button>
     </bar-section>
     <bar-section title="卡片组件" class="last-section">
       <bar-card style="margin-bottom: 1rem" title="卡片标题">卡片内容</bar-card>
@@ -253,6 +254,7 @@ import {
   Collapse,
   Panel,
   Modal,
+  Dialog,
 } from '../../components';
 
 export default defineComponent({
@@ -315,6 +317,16 @@ export default defineComponent({
     const notice = ref(false);
     const noMask = ref(false);
 
+    const showDialog = () => {
+      Dialog.danger({
+        title: '你好',
+        content: '你好你你好你好你好',
+        onOk: () => {
+          console.log(1);
+        },
+      });
+    };
+
     return {
       data,
       handleClick,
@@ -330,6 +342,7 @@ export default defineComponent({
       visible,
       notice,
       noMask,
+      showDialog,
     };
   },
 });
