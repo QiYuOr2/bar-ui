@@ -98,9 +98,15 @@
       <bar-input placeholder="行内输入框" inline />
     </bar-section>
     <bar-section title="单选框组件">
-      <bar-radio-group>
-        <bar-radio name="test" value="1">测试1</bar-radio>
-        <bar-radio name="test" value="2">测试2</bar-radio>
+      <bar-button @click="changeRadio" size="sm">切换</bar-button>
+      <bar-radio-group name="test" v-model="radioValue" @change="radioChange">
+        <bar-radio :value="1" @click="handleClick2">鸡肉</bar-radio>
+        <bar-radio :value="2">猪肉</bar-radio>
+        <bar-radio :value="3">羊肉</bar-radio>
+      </bar-radio-group>
+      <bar-radio-group name="test2" mode="vertical">
+        <bar-radio value="5" disabled>苹果</bar-radio>
+        <bar-radio value="6" disabled checked>梨</bar-radio>
       </bar-radio-group>
     </bar-section>
     <bar-section title="页头组件">
@@ -386,7 +392,21 @@ export default defineComponent({
 
     const input = ref('');
 
-    watch(input, (v) => console.log(v));
+    // watch(input, (v) => console.log(v));
+
+    const radioValue = ref();
+
+    const changeRadio = () => {
+      if (radioValue.value > 2 || !radioValue.value) {
+        radioValue.value = 1;
+      } else {
+        radioValue.value += 1;
+      }
+    };
+
+    const radioChange = (value: number) => {
+      console.log('radioChange() ', value);
+    };
 
     return {
       data,
@@ -406,6 +426,9 @@ export default defineComponent({
       showDialog,
       tabActive,
       input,
+      radioValue,
+      changeRadio,
+      radioChange,
     };
   },
 });
