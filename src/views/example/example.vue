@@ -130,6 +130,23 @@
         <bar-checkbox :value="5" checked disabled>吃饭</bar-checkbox>
       </bar-checkbox-group>
     </bar-section>
+    <bar-section title="选择器组件">
+      <div>对应的value：{{ selectVal || '暂未选择' }}</div>
+      <bar-select v-model="selectVal" name="city" placeholder="可输入检索">
+        <bar-option label="河南" :value="1" />
+        <bar-option label="河北" :value="2" />
+        <bar-option label="湖南" :value="3" />
+        <bar-option label="湖北" :value="4" />
+      </bar-select>
+      <bar-select name="b" placeholder="可清除" clearable :default-value="1">
+        <bar-option label="默认选项" :value="1" />
+        <bar-option label="选项2" :value="2" />
+      </bar-select>
+      <bar-select name="a" placeholder="禁用" disabled>
+        <bar-option label="选项1" :value="1" />
+        <bar-option label="选项2" :value="2" />
+      </bar-select>
+    </bar-section>
     <bar-section title="开关组件">
       <bar-switch />
       <bar-switch v-model="switchVal">
@@ -343,6 +360,8 @@ import {
   Checkbox,
   CheckboxGroup,
   Switch,
+  Select,
+  Option,
 } from '../../components';
 
 export default defineComponent({
@@ -368,6 +387,8 @@ export default defineComponent({
     [Checkbox.name]: Checkbox,
     [CheckboxGroup.name]: CheckboxGroup,
     [Switch.name]: Switch,
+    [Select.name]: Select,
+    [Option.name]: Option,
   },
 
   setup() {
@@ -452,6 +473,8 @@ export default defineComponent({
 
     const switchVal = ref(true);
 
+    const selectVal = ref('');
+
     return {
       data,
       handleClick,
@@ -476,6 +499,7 @@ export default defineComponent({
       checkboxValue,
       clearCheckbox,
       switchVal,
+      selectVal,
     };
   },
 });

@@ -38,6 +38,7 @@ const Input = defineComponent({
     suffixIcon: String as PropType<IconName>,
     prefixClass: String,
     suffixClass: String,
+    onSuffixClick: Function as PropType<(e: MouseEvent) => void>,
   },
   setup(props, { emit, slots }) {
     const value = ref(props.modelValue);
@@ -117,12 +118,18 @@ const Input = defineComponent({
         )}
         {input()}
         {props.suffixIcon && (
-          <div class={`bar-input__suffix ${props.suffixClass ?? ''}`}>
+          <div
+            class={`bar-input__suffix ${props.suffixClass ?? ''}`}
+            onClick={props.onSuffixClick}
+          >
             <Icon name={props.suffixIcon} />
           </div>
         )}
         {slots.suffix && (
-          <div class={`bar-input__suffix-content ${props.suffixClass ?? ''}`}>
+          <div
+            class={`bar-input__suffix-content ${props.suffixClass ?? ''}`}
+            onClick={props.onSuffixClick}
+          >
             {slots.suffix()}
           </div>
         )}
