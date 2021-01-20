@@ -19,5 +19,6 @@ export { default as Radio } from './radio';
 export { default as RadioGroup } from './radio/radioGroup';
 export { default as Checkbox } from './checkbox';
 export { default as CheckboxGroup } from './checkbox/checkboxGroup';
+export { default as Switch } from './switch';
 
 export { default as useAnchor } from './useAnchor';

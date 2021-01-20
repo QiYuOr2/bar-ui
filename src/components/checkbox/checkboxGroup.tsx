@@ -14,7 +14,6 @@ const CheckboxGroup = defineComponent({
   },
   setup(props, { emit, slots }) {
     const value = ref(props.modelValue);
-    console.log(props.modelValue);
 
     watch(
       () => props.modelValue,

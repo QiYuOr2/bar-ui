@@ -1,0 +1,93 @@
+@import '../variable.less';
+
+.bar-switch {
+  display: inline-block;
+  color: @text-color;
+
+  &__content {
+    display: inline-block;
+    position: relative;
+    input {
+      margin: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      position: absolute;
+    }
+
+    &-slider {
+      cursor: pointer;
+      display: block;
+      background-color: @gray2;
+      border: 2.5px solid @gray2;
+      position: relative;
+      transition: all 0.25s;
+      &::before {
+        content: '';
+        cursor: pointer;
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+        background-color: @white;
+        border-radius: 50%;
+        box-shadow: @shadow-2-down;
+        position: absolute;
+        left: 0;
+        z-index: 100;
+        transition: all 0.25s;
+      }
+    }
+    input:checked + &-slider {
+      background-color: @primary-color;
+      border-color: @primary-color;
+      &::before {
+        transform: translateX(100%);
+      }
+    }
+
+    &-prefix {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      height: 100%;
+      color: @white;
+      font-size: @text-normal;
+      position: absolute;
+      z-index: 50;
+    }
+
+    &-suffix {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      height: 100%;
+      color: @text-color;
+      font-size: @text-normal;
+      position: absolute;
+      z-index: 50;
+      right: 0;
+    }
+  }
+
+  &.disabled {
+    .bar-switch {
+      &__content {
+        &-slider {
+          cursor: not-allowed;
+          background-color: @gray3;
+          border-color: @gray3;
+          &::before {
+            cursor: not-allowed;
+            background-color: @white2;
+          }
+        }
+        input:checked + .bar-switch__content-slider {
+          background-color: @primary-light2;
+          border-color: @primary-light2;
+        }
+      }
+    }
+  }
+}

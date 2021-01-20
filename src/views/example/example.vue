@@ -26,6 +26,7 @@
               '输入框组件',
               '单选框组件',
               '多选框组件',
+              '开关组件',
               '页头组件',
               '分割线组件',
               '下拉菜单组件',
@@ -128,6 +129,15 @@
         <bar-checkbox :value="4" disabled>睡觉</bar-checkbox>
         <bar-checkbox :value="5" checked disabled>吃饭</bar-checkbox>
       </bar-checkbox-group>
+    </bar-section>
+    <bar-section title="开关组件">
+      <bar-switch />
+      <bar-switch v-model="switchVal">
+        <template #prefix>1</template>
+        <template #suffix>0</template>
+      </bar-switch>
+      <bar-switch disabled />
+      <bar-switch disabled checked />
     </bar-section>
     <bar-section title="页头组件">
       <bar-header title="普通页头" />
@@ -332,6 +342,7 @@ import {
   RadioGroup,
   Checkbox,
   CheckboxGroup,
+  Switch,
 } from '../../components';
 
 export default defineComponent({
@@ -356,6 +367,7 @@ export default defineComponent({
     [RadioGroup.name]: RadioGroup,
     [Checkbox.name]: Checkbox,
     [CheckboxGroup.name]: CheckboxGroup,
+    [Switch.name]: Switch,
   },
 
   setup() {
@@ -438,6 +450,8 @@ export default defineComponent({
       checkboxValue.value = [];
     };
 
+    const switchVal = ref(true);
+
     return {
       data,
       handleClick,
@@ -461,6 +475,7 @@ export default defineComponent({
       radioChange,
       checkboxValue,
       clearCheckbox,
+      switchVal,
     };
   },
 });
