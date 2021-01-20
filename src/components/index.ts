@@ -17,5 +17,7 @@ export { default as Tab } from './tabs/tab';
 export { default as Input } from './input';
 export { default as Radio } from './radio';
 export { default as RadioGroup } from './radio/radioGroup';
+export { default as Checkbox } from './checkbox';
+export { default as CheckboxGroup } from './checkbox/checkboxGroup';
 
 export { default as useAnchor } from './useAnchor';

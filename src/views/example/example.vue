@@ -25,6 +25,7 @@
               '按钮组件',
               '输入框组件',
               '单选框组件',
+              '多选框组件',
               '页头组件',
               '分割线组件',
               '下拉菜单组件',
@@ -99,6 +100,7 @@
     </bar-section>
     <bar-section title="单选框组件">
       <bar-button @click="changeRadio" size="sm">切换</bar-button>
+      <span>已选：{{ radioValue }}</span>
       <bar-radio-group name="test" v-model="radioValue" @change="radioChange">
         <bar-radio :value="1" @click="handleClick2">鸡肉</bar-radio>
         <bar-radio :value="2">猪肉</bar-radio>
@@ -108,6 +110,24 @@
         <bar-radio value="5" disabled>苹果</bar-radio>
         <bar-radio value="6" disabled checked>梨</bar-radio>
       </bar-radio-group>
+    </bar-section>
+    <bar-section title="多选框组件">
+      <bar-button @click="clearCheckbox" size="sm" inline>清空</bar-button>
+      <bar-checkbox-group v-model="checkboxValue" name="something">
+        <bar-checkbox :value="1">看电视</bar-checkbox>
+        <bar-checkbox :value="2">玩电脑</bar-checkbox>
+        <bar-checkbox :value="3">玩手机</bar-checkbox>
+        <bar-checkbox :value="4" disabled>睡觉</bar-checkbox>
+        <bar-checkbox :value="5" checked disabled>吃饭</bar-checkbox>
+      </bar-checkbox-group>
+      <bar-divider>已选：{{ checkboxValue }}</bar-divider>
+      <bar-checkbox-group name="some" mode="vertical">
+        <bar-checkbox :value="1">看电视</bar-checkbox>
+        <bar-checkbox :value="2">玩电脑</bar-checkbox>
+        <bar-checkbox :value="3">玩手机</bar-checkbox>
+        <bar-checkbox :value="4" disabled>睡觉</bar-checkbox>
+        <bar-checkbox :value="5" checked disabled>吃饭</bar-checkbox>
+      </bar-checkbox-group>
     </bar-section>
     <bar-section title="页头组件">
       <bar-header title="普通页头" />
@@ -310,6 +330,8 @@ import {
   Input,
   Radio,
   RadioGroup,
+  Checkbox,
+  CheckboxGroup,
 } from '../../components';
 
 export default defineComponent({
@@ -332,6 +354,8 @@ export default defineComponent({
     [Input.name]: Input,
     [Radio.name]: Radio,
     [RadioGroup.name]: RadioGroup,
+    [Checkbox.name]: Checkbox,
+    [CheckboxGroup.name]: CheckboxGroup,
   },
 
   setup() {
@@ -408,6 +432,12 @@ export default defineComponent({
       console.log('radioChange() ', value);
     };
 
+    const checkboxValue = ref([1]);
+
+    const clearCheckbox = () => {
+      checkboxValue.value = [];
+    };
+
     return {
       data,
       handleClick,
@@ -429,6 +459,8 @@ export default defineComponent({
       radioValue,
       changeRadio,
       radioChange,
+      checkboxValue,
+      clearCheckbox,
     };
   },
 });
