@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
 export default defineConfig({
-  root: '/bar-ui/',
   plugins: [vue(), vueJsx()],
+  build: {
+    base: '/bar-ui/'
+  }
 });
