@@ -23,5 +23,6 @@ export { default as Switch } from './switch';
 export { default as Select } from './select';
 export { default as Option } from './select/option';
 export { default as Textarea } from './textarea';
+export { default as Alert } from './alert';
 
 export { default as useAnchor } from './useAnchor';

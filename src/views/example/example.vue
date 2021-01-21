@@ -29,6 +29,7 @@
               '选择器组件',
               '开关组件',
               '多行输入框组件',
+              '警告提示组件',
               '页头组件',
               '分割线组件',
               '下拉菜单组件',
@@ -159,11 +160,23 @@
       <bar-switch disabled checked />
     </bar-section>
     <bar-section title="多行输入框组件">
-      <bar-textarea :rows="5" :cols="50" placeholder="自定义行列数" />
-      <bar-textarea :row="5" placeholder="占满宽度" block />
+      <bar-textarea
+        v-model="textarea"
+        :rows="5"
+        :cols="50"
+        placeholder="自定义行列数"
+      />
+      <bar-textarea v-model="textarea" :row="5" placeholder="占满宽度" block />
       <bar-textarea placeholder="有错误" has-fail :maxlength="5" />
       <bar-textarea placeholder="禁用" disabled />
-      <bar-textarea placeholder="只读" readonly :value="input" />
+      <bar-textarea placeholder="只读" readonly />
+    </bar-section>
+    <bar-section title="警告提示组件">
+      <bar-button @click="alertShow = !alertShow">切换状态</bar-button>
+      <bar-alert v-model="alertShow" :closable="false">info提示</bar-alert>
+      <bar-alert type="success">success提示</bar-alert>
+      <bar-alert type="warn">warn提示</bar-alert>
+      <bar-alert type="danger">danger提示</bar-alert>
     </bar-section>
     <bar-section title="页头组件">
       <bar-header title="普通页头" />
@@ -372,6 +385,7 @@ import {
   Select,
   Option,
   Textarea,
+  Alert,
 } from '../../components';
 
 export default defineComponent({
@@ -400,6 +414,7 @@ export default defineComponent({
     [Select.name]: Select,
     [Option.name]: Option,
     [Textarea.name]: Textarea,
+    [Alert.name]: Alert,
   },
 
   setup() {
@@ -486,6 +501,10 @@ export default defineComponent({
 
     const selectVal = ref('');
 
+    const textarea = ref('');
+
+    const alertShow = ref(true);
+
     return {
       data,
       handleClick,
@@ -511,6 +530,8 @@ export default defineComponent({
       clearCheckbox,
       switchVal,
       selectVal,
+      textarea,
+      alertShow,
     };
   },
 });

@@ -1,0 +1,55 @@
+@import '../variable.less';
+
+.bar-alert {
+  color: @text-color-secondary;
+  font-size: @text-xs;
+  border-radius: @border-radius-base;
+  box-shadow: @shadow-1-down;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 15px;
+
+  &__content {
+    border-radius: @border-radius-base;
+    display: inline-block;
+  }
+
+  &&-info {
+    background-color: @info-light3;
+    border: 1px solid @info-light;
+  }
+  &&-success {
+    background-color: @success-light3;
+    border: 1px solid @success-light;
+  }
+  &&-warn {
+    background-color: @warn-light3;
+    border: 1px solid @warn-light;
+  }
+  &&-danger {
+    background-color: @danger-light3;
+    border: 1px solid @danger-light;
+  }
+
+  &__close {
+    display: flex;
+    width: 20px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
+
+.alert {
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.25s;
+  }
+}
