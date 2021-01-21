@@ -25,5 +25,6 @@ export { default as Option } from './select/option';
 export { default as Textarea } from './textarea';
 export { default as Alert } from './alert';
 export { default as InfiniteScroll } from './infinite-scroll';
+export { default as Loading } from './loading';
 
 export { default as useAnchor } from './useAnchor';

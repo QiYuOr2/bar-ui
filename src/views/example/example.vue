@@ -38,6 +38,7 @@
               '模态框组件',
               '标签栏组件',
               '无限滚动组件',
+              '加载组件',
               '卡片组件',
             ]"
             :key="index"
@@ -328,6 +329,22 @@
         <div class="scroll-card" v-for="n in list" :key="n">{{ n }}</div>
       </bar-infinite-scroll>
     </bar-section>
+    <bar-section title="加载组件">
+      <bar-switch v-model="isLoad" />
+      <bar-loading v-model="isLoad" loading-text="自定义加载文字">
+        <div>
+          感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI
+        </div>
+      </bar-loading>
+      <bar-loading loading-text="自定义加载图标和颜色" color="red">
+        <template #icon>
+          <bar-icon name="success" color="red" />
+        </template>
+        <div>
+          感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI感谢使用BAR-UI
+        </div>
+      </bar-loading>
+    </bar-section>
     <bar-section title="卡片组件" class="last-section">
       <bar-card style="margin-bottom: 1rem" title="卡片标题">卡片内容</bar-card>
       <bar-card-stack
@@ -397,6 +414,7 @@ import {
   Textarea,
   Alert,
   InfiniteScroll,
+  Loading,
 } from '../../components';
 
 export default defineComponent({
@@ -427,6 +445,7 @@ export default defineComponent({
     [Textarea.name]: Textarea,
     [Alert.name]: Alert,
     [InfiniteScroll.name]: InfiniteScroll,
+    [Loading.name]: Loading,
   },
 
   setup() {
@@ -535,6 +554,8 @@ export default defineComponent({
       });
     };
 
+    const isLoad = ref(false);
+
     return {
       data,
       handleClick,
@@ -565,6 +586,7 @@ export default defineComponent({
       load,
       list,
       finished,
+      isLoad,
     };
   },
 });
@@ -585,7 +607,7 @@ export default defineComponent({
     margin-bottom: 0 !important;
 
     .stack {
-      height: 200px;
+      height: 150px;
       margin-bottom: 0 !important;
     }
   }
