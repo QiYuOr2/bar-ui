@@ -2,7 +2,7 @@
   <div class="example-container">
     <bar-header
       title="演示页"
-      sub-title="演示页子标题"
+      sub-title="项目尚未正式发布"
       scroll-target="#container"
       left-text="返回"
       @click-left.prevent.stop="handleClick"
@@ -163,7 +163,7 @@
       <bar-textarea
         v-model="textarea"
         :rows="5"
-        :cols="50"
+        :cols="30"
         placeholder="自定义行列数"
       />
       <bar-textarea v-model="textarea" :row="5" placeholder="占满宽度" block />
@@ -353,17 +353,21 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref, watch } from 'vue';
-import {
-  // Button,
-  Card,
-  CardStack,
-  // Header,
-  // Icon,
-  Section,
-  Divider,
-} from '../../../lib';
+// import {
+//   // Button,
+//   Card,
+//   CardStack,
+//   // Header,
+//   // Icon,
+//   Section,
+//   Divider,
+// } from '../../../lib';
 import {
   Button,
+  Card,
+  CardStack,
+  Section,
+  Divider,
   Dropdown,
   Header,
   Icon,

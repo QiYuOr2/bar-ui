@@ -1,4 +1,4 @@
-import { defineComponent, ref, PropType, App, watch } from 'vue';
+import { defineComponent, ref, PropType, App } from 'vue';
 import Button from '../button';
 import { ButtonType } from '../button';
 import './index.less';
@@ -47,7 +47,7 @@ const Dropdown = defineComponent({
           }`}
           onClick={() => (visible.value = false)}
         >
-          {slots}
+          <div>{slots}</div>
         </div>
       );
     };
