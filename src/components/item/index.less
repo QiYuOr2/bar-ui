@@ -19,4 +19,19 @@
       transition: background-color 0.3s;
     }
   }
+
+  &.bar-item-tabbar {
+    font-size: @text-normal;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .bar-icon {
+      margin-bottom: 4px;
+    }
+    &.active {
+      color: @primary-color;
+    }
+  }
 }

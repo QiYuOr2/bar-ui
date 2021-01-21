@@ -39,6 +39,7 @@
               '标签栏组件',
               '无限滚动组件',
               '加载组件',
+              '底部标签栏组件',
               '卡片组件',
             ]"
             :key="index"
@@ -66,6 +67,11 @@
       <bar-icon name="warn" size="sm" />
       <bar-icon name="error" size="sm" />
       <bar-icon name="close" size="sm" />
+      <bar-icon name="home" size="sm" />
+      <bar-icon name="user" size="sm" />
+      <bar-icon name="bars" size="sm" />
+      <bar-icon name="menu" size="sm" />
+      <bar-icon name="setting" size="sm" />
     </bar-section>
     <bar-section title="按钮组件">
       <bar-button>default按钮</bar-button>
@@ -345,6 +351,14 @@
         </div>
       </bar-loading>
     </bar-section>
+    <bar-section title="底部标签栏组件">
+      <bar-tabbar>
+        <bar-item type="tabbar" icon="home">首页</bar-item>
+        <bar-item type="tabbar" icon="user">用户</bar-item>
+        <bar-item type="tabbar" icon="bars">菜单</bar-item>
+        <bar-item type="tabbar" icon="setting">设置</bar-item>
+      </bar-tabbar>
+    </bar-section>
     <bar-section title="卡片组件" class="last-section">
       <bar-card style="margin-bottom: 1rem" title="卡片标题">卡片内容</bar-card>
       <bar-card-stack
@@ -376,15 +390,6 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref, watch } from 'vue';
-// import {
-//   // Button,
-//   Card,
-//   CardStack,
-//   // Header,
-//   // Icon,
-//   Section,
-//   Divider,
-// } from '../../../lib';
 import {
   Button,
   Card,
@@ -415,6 +420,7 @@ import {
   Alert,
   InfiniteScroll,
   Loading,
+  Tabbar,
 } from '../../components';
 
 export default defineComponent({
@@ -446,6 +452,7 @@ export default defineComponent({
     [Alert.name]: Alert,
     [InfiniteScroll.name]: InfiniteScroll,
     [Loading.name]: Loading,
+    [Tabbar.name]: Tabbar,
   },
 
   setup() {

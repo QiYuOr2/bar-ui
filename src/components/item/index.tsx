@@ -3,7 +3,7 @@ import Icon from '../icon';
 import { IconName } from '../icon';
 import './index.less';
 
-export type ItemType = 'default' | 'menu' | 'dropdown' | 'select';
+export type ItemType = 'default' | 'menu' | 'dropdown' | 'select' | 'tabbar';
 
 const Item = defineComponent({
   name: 'bar-item',
@@ -38,6 +38,18 @@ const Item = defineComponent({
       if (props.type === 'select')
         return (
           <div class={`bar-item bar-item-${props.type}`} onClick={handleClick}>
+            <span>{slots}</span>
+          </div>
+        );
+
+      if (props.type === 'tabbar')
+        return (
+          <div class={`bar-item bar-item-${props.type}`} onClick={handleClick}>
+            <span class="bar-item-icon">
+              {slots.icon
+                ? slots.icon()
+                : props.icon && <Icon name={props.icon} size="sm" />}
+            </span>
             <span>{slots}</span>
           </div>
         );
