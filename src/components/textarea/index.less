@@ -1,0 +1,62 @@
+@import '../variable.less';
+
+.bar-textarea {
+  color: @text-color;
+  display: inline-block;
+
+  &__inner {
+    box-sizing: border-box;
+    display: block;
+    border: none;
+    outline: none;
+
+    background-color: @white;
+    padding: 8px;
+    border-radius: @border-radius-base;
+    box-shadow: @shadow-1-down;
+    border: 2px solid @border-color-light;
+
+    transition: border-color 0.4s;
+
+    &:focus {
+      border-color: @primary-color;
+    }
+
+    &.inline {
+      width: unset;
+    }
+
+    &.fail {
+      border-color: @danger-color;
+      color: @danger-color;
+      &::placeholder {
+        color: @danger-light;
+      }
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      color: @text-color-disabled;
+      background-color: @gray1;
+      border: 1px solid @border-color-base;
+      &::placeholder {
+        color: @text-color-disabled;
+      }
+    }
+
+    &.fail {
+      border-color: @danger-color;
+      color: @danger-color;
+      &::placeholder {
+        color: @danger-light;
+      }
+    }
+  }
+
+  &.block {
+    display: block;
+    .bar-textarea__inner {
+      width: 100%;
+    }
+  }
+}

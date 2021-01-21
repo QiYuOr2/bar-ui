@@ -26,7 +26,9 @@
               '输入框组件',
               '单选框组件',
               '多选框组件',
+              '选择器组件',
               '开关组件',
+              '多行输入框组件',
               '页头组件',
               '分割线组件',
               '下拉菜单组件',
@@ -155,6 +157,13 @@
       </bar-switch>
       <bar-switch disabled />
       <bar-switch disabled checked />
+    </bar-section>
+    <bar-section title="多行输入框组件">
+      <bar-textarea :rows="5" :cols="50" placeholder="自定义行列数" />
+      <bar-textarea :row="5" placeholder="占满宽度" block />
+      <bar-textarea placeholder="有错误" has-fail :maxlength="5" />
+      <bar-textarea placeholder="禁用" disabled />
+      <bar-textarea placeholder="只读" readonly :value="input" />
     </bar-section>
     <bar-section title="页头组件">
       <bar-header title="普通页头" />
@@ -362,6 +371,7 @@ import {
   Switch,
   Select,
   Option,
+  Textarea,
 } from '../../components';
 
 export default defineComponent({
@@ -389,6 +399,7 @@ export default defineComponent({
     [Switch.name]: Switch,
     [Select.name]: Select,
     [Option.name]: Option,
+    [Textarea.name]: Textarea,
   },
 
   setup() {

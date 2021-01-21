@@ -41,6 +41,9 @@ const Option = defineComponent({
       emit('click', event);
     };
 
+    // 子孙组件中如果想要获取到父组件中的响应式数据
+    // 可以使用计算(computed)获取
+    // 参考：https://blog.csdn.net/qq_22078107/article/details/104672810
     const search = computed(() => searckKey?.());
 
     const isSearched = () => {
