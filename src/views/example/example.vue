@@ -37,6 +37,7 @@
               '折叠面板组件',
               '模态框组件',
               '标签栏组件',
+              '无限滚动组件',
               '卡片组件',
             ]"
             :key="index"
@@ -322,6 +323,11 @@
         <bar-tab :index="3" title="标签3">标签内容3</bar-tab>
       </bar-tabs>
     </bar-section>
+    <bar-section title="无限滚动组件">
+      <bar-infinite-scroll @load="load" :height="200" :finished="finished">
+        <div class="scroll-card" v-for="n in list" :key="n">{{ n }}</div>
+      </bar-infinite-scroll>
+    </bar-section>
     <bar-section title="卡片组件" class="last-section">
       <bar-card style="margin-bottom: 1rem" title="卡片标题">卡片内容</bar-card>
       <bar-card-stack
@@ -390,6 +396,7 @@ import {
   Option,
   Textarea,
   Alert,
+  InfiniteScroll,
 } from '../../components';
 
 export default defineComponent({
@@ -419,6 +426,7 @@ export default defineComponent({
     [Option.name]: Option,
     [Textarea.name]: Textarea,
     [Alert.name]: Alert,
+    [InfiniteScroll.name]: InfiniteScroll,
   },
 
   setup() {
@@ -509,6 +517,24 @@ export default defineComponent({
 
     const alertShow = ref(true);
 
+    const list = ref<number[]>([]);
+    const finished = ref(false);
+    const load = () => {
+      return new Promise((resolve: any) => {
+        setTimeout(() => {
+          const n = list.value.length;
+          if (n >= 60) {
+            finished.value = true;
+            return resolve();
+          }
+          for (let i = n + 1; i <= n + 20; i++) {
+            list.value.push(i);
+          }
+          resolve();
+        }, 1000);
+      });
+    };
+
     return {
       data,
       handleClick,
@@ -536,6 +562,9 @@ export default defineComponent({
       selectVal,
       textarea,
       alertShow,
+      load,
+      list,
+      finished,
     };
   },
 });
@@ -559,6 +588,13 @@ export default defineComponent({
       height: 200px;
       margin-bottom: 0 !important;
     }
+  }
+
+  .scroll-card {
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+    line-height: 40px;
+    font-size: 14px;
   }
 }
 </style>
