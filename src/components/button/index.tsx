@@ -1,5 +1,5 @@
 import { App, defineComponent, PropType } from 'vue';
-import icon, { IconName, IconSize } from '../icon';
+import icon, { IconSize } from '../icon';
 import './index.less';
 
 export type ButtonType =

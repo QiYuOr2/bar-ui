@@ -220,7 +220,7 @@ export default function useCardStackAnimate(
     animateEnd();
   };
 
-  const handleTouchCancel = (e: TouchEvent) => {
+  const handleTouchCancel = (_e: TouchEvent) => {
     hasAnimate.value = true;
     const distance = getDistance(0, 0, left.value, top.value);
 

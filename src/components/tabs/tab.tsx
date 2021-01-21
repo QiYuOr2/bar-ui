@@ -1,4 +1,4 @@
-import { App, defineComponent, inject, onMounted, Ref, Slot } from 'vue';
+import { App, defineComponent, inject, onMounted, Ref } from 'vue';
 import './index.less';
 
 export type TabOptions = {

@@ -1,4 +1,4 @@
-import { App, defineComponent, inject, PropType, Ref, watch } from 'vue';
+import { App, defineComponent, inject, PropType, Ref } from 'vue';
 import './index.less';
 
 const Radio = defineComponent({

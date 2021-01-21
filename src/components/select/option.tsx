@@ -5,8 +5,6 @@ import {
   inject,
   onMounted,
   PropType,
-  Ref,
-  watch,
 } from 'vue';
 import Item from '../item';
 import './index.less';

@@ -1,4 +1,4 @@
-import { App, defineComponent, inject, PropType, ref, Ref } from 'vue';
+import { App, defineComponent, inject, PropType, Ref } from 'vue';
 import './index.less';
 
 const Checkbox = defineComponent({
