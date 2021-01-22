@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import { Infinite-scroll } from '../../components';
-import Infinite-scrollMd from './markdown/infinite-scroll.md';
+import { InfiniteScroll } from '../../components';
+import InfiniteScrollMd from './markdown/infinite-scroll.md';
 export default {
   components: {
-    [Infinite-scroll.name]: Infinite-scroll,
-    md: Infinite-scrollMd,
+    [InfiniteScroll.name]: InfiniteScroll,
+    md: InfinitScrollMd,
   },
 };
 </script>

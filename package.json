@@ -1,6 +1,6 @@
 {
   "name": "bar-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "homepage": "https://Tuzilow.github.io/bar-ui",
   "types": "lib/index.d.ts",
