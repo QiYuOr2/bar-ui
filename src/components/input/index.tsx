@@ -12,9 +12,8 @@ import './index.less';
 const Input = defineComponent({
   name: 'bar-input',
   props: {
-    modelValue: String,
+    modelValue: [String, Number],
     placeholder: String,
-    label: String,
     name: String,
     type: {
       type: String as PropType<InputHTMLAttributes['type']>,

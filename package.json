@@ -13,12 +13,14 @@
     "build": "vite build",
     "build:pkg": "rollup -c pkg.config.js",
     "example": "npm link && npm install && npm link bar-ui",
-    "new": "hygen component new"
+    "new": "hygen component new",
+    "doc": "hygen detail new"
   },
   "dependencies": {
     "marked": "^1.2.7",
     "vue": "^3.0.5",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vue3-highlightjs": "^1.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -40,6 +42,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.29.0",
     "typescript": "^4.1.3",
-    "vite": "^2.0.0-beta.35"
+    "vite": "^2.0.0-beta.35",
+    "vite-plugin-md": "^0.4.1"
   }
 }

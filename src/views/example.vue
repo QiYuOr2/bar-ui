@@ -2,10 +2,10 @@
   <div class="example-container">
     <bar-header
       title="演示页"
-      sub-title="项目尚未正式发布"
+      sub-title="这是副标题"
       scroll-target="#container"
       left-text="返回"
-      @click-left.prevent.stop="handleClick"
+      @click-left.prevent.stop="back"
       :left-arrow="true"
       fixed
     >
@@ -443,6 +443,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
 import {
   Button,
   Card,
@@ -650,6 +651,11 @@ export default defineComponent({
 
     const sidebarVal = ref('');
 
+    const router = useRouter();
+    const back = () => {
+      router.replace('/');
+    };
+
     return {
       data,
       handleClick,
@@ -684,6 +690,7 @@ export default defineComponent({
       tabbarActive,
       sidebar,
       sidebarVal,
+      back,
     };
   },
 });
