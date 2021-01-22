@@ -476,7 +476,7 @@ import {
   Tabbar,
   Sidebar,
   Avatar,
-} from '../../components';
+} from '../components';
 
 export default defineComponent({
   name: 'example',
@@ -689,7 +689,7 @@ export default defineComponent({
 });
 </script>
 <style lang="less">
-@import '../../components/variable.less';
+@import '../components/variable.less';
 .example-container {
   background-color: #fafafb;
   .active {
