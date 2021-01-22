@@ -8,8 +8,8 @@ const Collapse = defineComponent({
     modelValue: Number,
   },
   setup(props, { emit, slots }) {
-    const activeIndex = ref(-1);
-    provide('toggle', (index: number, visible: Ref<Boolean>) => {
+    const activeIndex = ref<number | string>(-1);
+    provide('toggle', (index: number | string, visible: Ref<Boolean>) => {
       visible.value = !visible.value;
       activeIndex.value = index;
       emit('update:modelValue', index);

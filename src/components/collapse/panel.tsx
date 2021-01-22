@@ -15,14 +15,14 @@ const Panel = defineComponent({
   name: 'bar-panel',
   props: {
     title: { type: String },
-    index: { type: Number, required: true },
+    index: { type: [Number, String], required: true },
     onOpen: { type: Function as PropType<(event: MouseEvent) => void> },
     onClose: { type: Function as PropType<(event: MouseEvent) => void> },
   },
   setup(props, { emit, slots }) {
-    const toggle = inject<(index: number, visible: Ref<Boolean>) => void>(
-      'toggle'
-    );
+    const toggle = inject<
+      (index: number | String, visible: Ref<Boolean>) => void
+    >('toggle');
     if (toggle === undefined) {
       console.warn('panel cannot get toggle');
     }

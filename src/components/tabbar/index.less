@@ -3,7 +3,16 @@
 .bar-tabbar {
   color: @text-color;
   background-color: @white;
+  box-shadow: @shadow-1-heavy;
   display: flex;
   justify-content: space-around;
   padding: 8px 0;
+
+  &.fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2999;
+  }
 }

@@ -27,5 +27,6 @@ export { default as Alert } from './alert';
 export { default as InfiniteScroll } from './infinite-scroll';
 export { default as Loading } from './loading';
 export { default as Tabbar } from './tabbar';
+export { default as Sidebar } from './sidebar';
 
 export { default as useAnchor } from './useAnchor';

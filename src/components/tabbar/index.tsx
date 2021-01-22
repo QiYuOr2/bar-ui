@@ -6,6 +6,7 @@ const Tabbar = defineComponent({
   props: {
     modelValue: String,
     onChange: Function as PropType<(name: string) => void>,
+    fixed: { type: Boolean, default: true },
   },
   setup(props, { emit, slots }) {
     const activeName = ref(props.modelValue || '');
@@ -23,7 +24,9 @@ const Tabbar = defineComponent({
       }
     );
 
-    return () => <div class="bar-tabbar">{slots}</div>;
+    return () => (
+      <div class={['bar-tabbar', { fixed: props.fixed }]}>{slots}</div>
+    );
   },
 });
 

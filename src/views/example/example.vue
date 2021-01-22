@@ -40,6 +40,7 @@
               '无限滚动组件',
               '加载组件',
               '底部标签栏组件',
+              '侧边栏组件',
               '卡片组件',
             ]"
             :key="index"
@@ -353,12 +354,27 @@
     </bar-section>
     <bar-section title="底部标签栏组件">
       <div>{{ tabbarActive }}</div>
-      <bar-tabbar v-model="tabbarActive">
+      <bar-tabbar v-model="tabbarActive" :fixed="false">
         <bar-item type="tabbar" name="home" icon="home">首页</bar-item>
         <bar-item type="tabbar" name="user" icon="user" dot>用户</bar-item>
-        <bar-item type="tabbar" name="menu" icon="bars" :badge="5">菜单</bar-item>
-        <bar-item type="tabbar" name="setting" icon="setting" :badge="15">设置</bar-item>
+        <bar-item type="tabbar" name="menu" icon="bars" :badge="5">
+          菜单
+        </bar-item>
+        <bar-item type="tabbar" name="setting" icon="setting" :badge="15">
+          设置
+        </bar-item>
       </bar-tabbar>
+    </bar-section>
+    <bar-section title="侧边栏组件">
+      <div>{{ sidebarVal }}</div>
+      <bar-sidebar
+        v-model="sidebarVal"
+        style="width: 200px"
+        :value="sidebar"
+        accordion
+        header="导航"
+        footer="Copyright © Tuzilow"
+      />
     </bar-section>
     <bar-section title="卡片组件" class="last-section">
       <bar-card style="margin-bottom: 1rem" title="卡片标题">卡片内容</bar-card>
@@ -422,6 +438,7 @@ import {
   InfiniteScroll,
   Loading,
   Tabbar,
+  Sidebar,
 } from '../../components';
 
 export default defineComponent({
@@ -454,6 +471,7 @@ export default defineComponent({
     [InfiniteScroll.name]: InfiniteScroll,
     [Loading.name]: Loading,
     [Tabbar.name]: Tabbar,
+    [Sidebar.name]: Sidebar,
   },
 
   setup() {
@@ -566,6 +584,34 @@ export default defineComponent({
 
     const tabbarActive = ref('home');
 
+    const sidebar = [
+      { label: '侧边栏1', icon: 'home', name: 'test1' },
+      {
+        label: '侧边栏2',
+        icon: 'menu',
+        name: 'test2',
+        subItems: [
+          {
+            label: '侧边栏2-1',
+            icon: 'heart',
+            name: 'test3',
+            subItems: [{ label: '侧边栏2-1-1', name: 'test4' }],
+          },
+        ],
+      },
+      {
+        label: '侧边栏3',
+        icon: 'user',
+        name: 'test5',
+        subItems: [
+          { label: '侧边栏3-1', name: 'test6' },
+          { label: '侧边栏3-2', name: 'test7' },
+        ],
+      },
+    ];
+
+    const sidebarVal = ref('');
+
     return {
       data,
       handleClick,
@@ -598,6 +644,8 @@ export default defineComponent({
       finished,
       isLoad,
       tabbarActive,
+      sidebar,
+      sidebarVal,
     };
   },
 });

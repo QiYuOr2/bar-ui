@@ -1,0 +1,96 @@
+@import '../variable.less';
+
+.bar-sidebar {
+  color: @text-color;
+  background-color: @white;
+  font-size: @text-normal;
+  min-width: 150px;
+
+  &__header {
+    padding: 10px 14px;
+    font-size: @text-lg;
+    font-weight: bold;
+    border-bottom: 1px solid @border-color-base;
+  }
+
+  &__footer {
+    margin-top: 5px;
+    padding: 10px 14px;
+    font-size: @text-xs;
+    color: @text-color-secondary;
+    border-top: 1px solid @border-color-base;
+  }
+
+  &-item {
+    cursor: pointer;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    &:hover {
+      color: @primary-color;
+    }
+
+    & &-icon {
+      transform: rotate(0);
+      margin-right: 5px;
+      width: calc(@text-normal + 2px);
+      height: calc(@text-normal + 2px);
+    }
+
+    & {
+      position: relative;
+      &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 5px;
+        display: block;
+        content: '';
+        background-color: unset;
+        transition: all 0.25s;
+      }
+    }
+
+    &.active {
+      &::before {
+        background-color: @primary-light2;
+      }
+    }
+  }
+
+  &-collapse {
+    p {
+      padding: 0;
+      margin: 0;
+    }
+    background-color: @white;
+
+    .bar-sidebar-panel {
+      .bar-panel__title {
+        background-color: @white;
+        &:hover {
+          color: @primary-color;
+        }
+      }
+      .bar-panel__content {
+        > div {
+          padding: 0;
+          padding-left: 14px;
+        }
+      }
+    }
+
+    .bar-sidebar-panel-wrapper {
+      p {
+        margin-right: auto;
+      }
+      .bar-sidebar-item-icon {
+        transform: rotate(0);
+        margin-right: 5px;
+        width: calc(@text-normal + 2px);
+        height: calc(@text-normal + 2px);
+      }
+    }
+  }
+}
