@@ -74,6 +74,42 @@
       <bar-icon name="menu" size="sm" />
       <bar-icon name="setting" size="sm" />
     </bar-section>
+    <bar-section title="头像组件">
+      <bar-avatar
+        src="https://cdn.jsdelivr.net/gh/Tuzilow/Tuzilow.github.io/images/avatar.png"
+        alt="123"
+        :size="64"
+      />
+      <bar-avatar
+        src="https://cdn.jsdelivr.net/gh/Tuzilow/Tuzilow.github.io/images/avatar.png"
+        alt="123"
+      />
+      <bar-avatar>文字</bar-avatar>
+      <bar-avatar
+        src="https://cdn.jsdelivr.net/gh/Tuzilow/Tuzilow.github.io/images/avatar.png"
+        alt="123"
+        :size="32"
+      />
+      <bar-divider />
+      <bar-avatar
+        src="https://cdn.jsdelivr.net/gh/Tuzilow/Tuzilow.github.io/images/avatar.png"
+        alt="123"
+        shape="square"
+        :size="64"
+      />
+      <bar-avatar
+        src="https://cdn.jsdelivr.net/gh/Tuzilow/Tuzilow.github.io/images/avatar.png"
+        alt="123"
+        shape="square"
+      />
+      <bar-avatar shape="square">文字</bar-avatar>
+      <bar-avatar
+        src="https://cdn.jsdelivr.net/gh/Tuzilow/Tuzilow.github.io/images/avatar.png"
+        alt="123"
+        :size="32"
+        shape="square"
+      />
+    </bar-section>
     <bar-section title="按钮组件">
       <bar-button>default按钮</bar-button>
       <bar-button type="primary">primary按钮</bar-button>
@@ -439,6 +475,7 @@ import {
   Loading,
   Tabbar,
   Sidebar,
+  Avatar,
 } from '../../components';
 
 export default defineComponent({
@@ -472,6 +509,7 @@ export default defineComponent({
     [Loading.name]: Loading,
     [Tabbar.name]: Tabbar,
     [Sidebar.name]: Sidebar,
+    [Avatar.name]: Avatar,
   },
 
   setup() {

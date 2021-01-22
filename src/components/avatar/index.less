@@ -1,0 +1,26 @@
+@import '../variable.less';
+
+.bar-avatar {
+  color: @text-color;
+  border-radius: 50%;
+  display: inline-flex;
+  background-color: @gray4;
+  justify-content: center;
+  align-items: center;
+  color: @white;
+  vertical-align: bottom;
+  img {
+    border-radius: 50%;
+  }
+
+  &.square {
+    border-radius: @border-radius-base;
+    img {
+      border-radius: @border-radius-base;
+    }
+  }
+
+  &.shadow {
+    box-shadow: @shadow-1-heavy;
+  }
+}
