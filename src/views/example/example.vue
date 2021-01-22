@@ -352,11 +352,12 @@
       </bar-loading>
     </bar-section>
     <bar-section title="底部标签栏组件">
-      <bar-tabbar>
-        <bar-item type="tabbar" icon="home">首页</bar-item>
-        <bar-item type="tabbar" icon="user">用户</bar-item>
-        <bar-item type="tabbar" icon="bars">菜单</bar-item>
-        <bar-item type="tabbar" icon="setting">设置</bar-item>
+      <div>{{ tabbarActive }}</div>
+      <bar-tabbar v-model="tabbarActive">
+        <bar-item type="tabbar" name="home" icon="home">首页</bar-item>
+        <bar-item type="tabbar" name="user" icon="user" dot>用户</bar-item>
+        <bar-item type="tabbar" name="menu" icon="bars" :badge="5">菜单</bar-item>
+        <bar-item type="tabbar" name="setting" icon="setting" :badge="15">设置</bar-item>
       </bar-tabbar>
     </bar-section>
     <bar-section title="卡片组件" class="last-section">
@@ -563,6 +564,8 @@ export default defineComponent({
 
     const isLoad = ref(false);
 
+    const tabbarActive = ref('home');
+
     return {
       data,
       handleClick,
@@ -594,6 +597,7 @@ export default defineComponent({
       list,
       finished,
       isLoad,
+      tabbarActive,
     };
   },
 });

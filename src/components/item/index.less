@@ -33,5 +33,32 @@
     &.active {
       color: @primary-color;
     }
+    .bar-item-icon {
+      position: relative;
+      .bar-item-badge {
+        box-sizing: border-box;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 16px;
+        height: 16px;
+        padding: 0px 4px;
+        font-style: normal;
+        font-size: @text-xs;
+        color: @white;
+        border-radius: 8px;
+        background-color: @danger-color;
+        position: absolute;
+        top: -5px;
+        transform: translateX(-3px);
+        &.dot {
+          top: unset;
+          transform: translateX(0);
+          padding: 0;
+          min-width: 7px;
+          height: 7px;
+        }
+      }
+    }
   }
 }
