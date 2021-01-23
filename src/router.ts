@@ -86,7 +86,7 @@ const router = createRouter({
         },
         {
           path: 'infinite',
-          component: () => import('./views/detail/infinite-scroll.vue'),
+          component: () => import('./views/detail/infinite.vue'),
         },
         {
           path: 'loading',
@@ -111,6 +111,10 @@ const router = createRouter({
         {
           path: 'tabs',
           component: () => import('./views/detail/tabs.vue'),
+        },
+        {
+          path: 'anchor',
+          component: () => import('./views/detail/anchor.vue'),
         },
       ],
     },

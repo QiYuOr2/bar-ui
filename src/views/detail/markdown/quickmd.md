@@ -2,10 +2,10 @@
 
 本项目使用 vue3、vite 和 typescript 开发，并且采用了 jsx 语法进行组件开发
 
-文档编写时的环境：
-
-- vue v3.0.5
-- vite v2.0.0-beta.35
+> 文档编写时的环境：
+> 
+> - vue v3.0.5
+> - vite v2.0.0-beta.35
 
 ### 注意
 
@@ -21,7 +21,6 @@ npm init @vitejs/app my-app
 cd my-app
 
 npm i
-npm i bar-ui
 ```
 
 ### 安装

@@ -1,7 +1,15 @@
 ```html
 <template>
   <div>
-    <bar-section>Section</bar-section>
+    <bar-section title="分区1">
+      <div>内容1</div>
+    </bar-section>
+    <bar-section title="分区2">
+      <div>内容2</div>
+    </bar-section>
+    <bar-section title="分区3">
+      <div>内容3</div>
+    </bar-section>
   </div>
 </template>
 
@@ -18,18 +26,6 @@
 
 ## API
 
-| 参数          | 说明           | 类型    | 可选值              | 默认值  |
-| :------------ | :------------- | :------ | :-------------- | :------ |
-|           |        |   |  |  |
-
-## Events
-
-| 参数  | 说明         | 函数签名                    |
-| :---- | :----------- | :-------------------------- |
-| click | 按钮点击事件 | (event: MouseEvent) => void |
-
-## Slots
-
-| 名称 | 说明        |
-| :--- | :---------- |
-|  |  |
+| 参数  | 说明     | 类型   | 可选值 | 默认值 |
+| :---- | :------- | :----- | :----- | :----- |
+| title | 分区标题 | string |        |        |

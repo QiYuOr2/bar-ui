@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Card 按钮组件</h2>
+    <h2>Card 卡片组件</h2>
     <bar-card style="margin-bottom: 1rem" title="卡片标题">卡片内容</bar-card>
     <bar-card-stack
       class="stack"

@@ -5,7 +5,7 @@ const Collapse = defineComponent({
   name: 'bar-collapse',
   props: {
     accordion: { type: Boolean, default: false },
-    modelValue: Number,
+    modelValue: [Number, String],
   },
   setup(props, { emit, slots }) {
     const activeIndex = ref<number | string>(-1);

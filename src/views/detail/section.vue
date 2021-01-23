@@ -1,6 +1,15 @@
 <template>
   <div>
-    <h2>Section 按钮组件</h2>
+    <h2>Section 分区组件</h2>
+    <bar-section title="分区1">
+      <div>内容1</div>
+    </bar-section>
+    <bar-section title="分区2">
+      <div>内容2</div>
+    </bar-section>
+    <bar-section title="分区3">
+      <div>内容3</div>
+    </bar-section>
     <pre v-highlightjs>
       <md />
     </pre>

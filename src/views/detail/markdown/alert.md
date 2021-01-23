@@ -10,6 +10,7 @@
 </template>
 
 <script>
+  import { ref } from 'vue';
   import { Alert, Button } from 'bar-ui';
 
   export default {

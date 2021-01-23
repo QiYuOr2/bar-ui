@@ -22,6 +22,18 @@
       [Card.name]: Card,
       [CardStack.name]: CardStack,
     },
+    setup() {
+      const data = [
+        { title: '卡1', content: '卡片堆叠滑动效果只有手机端有用' },
+        { title: '卡2', content: '内容2' },
+        { title: '卡3', content: '内容3' },
+        { title: '卡4', content: '内容4' },
+        { title: '卡5', content: '内容5' },
+        { title: '卡6', content: '内容6' },
+        { title: '卡7', content: '内容7' },
+      ];
+      return { data };
+    },
   };
 </script>
 ```

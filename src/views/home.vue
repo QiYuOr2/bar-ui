@@ -14,7 +14,7 @@
         :value="sidebar"
         footer="copyright © Tuzilow"
       />
-      <main class="content">
+      <main class="home-content">
         <router-view></router-view>
       </main>
     </div>
@@ -253,6 +253,13 @@ export default {
           },
         ],
       },
+      {
+        label: '锚点API',
+        name: 'anchor',
+        onClick() {
+          router.push('anchor');
+        },
+      },
     ];
 
     const toGithub = () => {
@@ -297,7 +304,11 @@ body {
       width: 200px;
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.16);
     }
-    .content {
+    .home-content {
+      * {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+          Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+      }
       height: calc(100vh - 46px);
       flex: 8;
       padding-left: 8%;
@@ -322,6 +333,22 @@ body {
           tr:nth-child(even) {
             background-color: #f6f8fa;
           }
+        }
+        blockquote {
+          position: relative;
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background-color: #13c2c2;
+          }
+          background: #f8f8f8;
+          margin-left: 0;
+          padding: 0.2rem 1.2rem;
+          padding-left: 1.6rem;
         }
       }
     }

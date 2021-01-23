@@ -21,6 +21,7 @@
 </template>
 
 <script>
+  import { ref } from 'vue';
   import { Input } from 'bar-ui';
 
   export default {
