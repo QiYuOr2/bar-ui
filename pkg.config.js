@@ -49,14 +49,14 @@ export default {
     {
       globals: { vue: 'Vue' },
       name: 'bar',
-      file: 'lib/index.js',
+      file: 'es/index.js',
       format: 'es',
       plugins: [terser()],
     },
     {
       globals: { vue: 'Vue' },
       name: 'bar',
-      file: 'lib/index.cjs',
+      file: 'lib/index.js',
       format: 'umd',
       plugins: [terser()],
     },

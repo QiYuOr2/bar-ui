@@ -1,12 +1,21 @@
 {
   "name": "bar-ui",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tuzilow/bar-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tuzilow/bar-ui.git"
+  },
   "homepage": "https://Tuzilow.github.io/bar-ui",
-  "types": "lib/index.d.ts",
+  "types": "types/index.d.ts",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "files": [
-    "lib"
+    "lib",
+    "es"
   ],
   "scripts": {
     "dev": "vite",
