@@ -279,6 +279,18 @@ body {
 * {
   box-sizing: border-box;
 }
+
+code.hljs {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+
+  padding: 10px 12px;
+
+  border-radius: 5px;
+
+  font-size: 16px;
+}
+
 .home-container {
   overflow-y: hidden;
   .bar-header {

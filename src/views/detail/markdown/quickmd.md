@@ -6,15 +6,6 @@
 >
 > - vue v3.0.5
 
-```bash
-# 创建vite项目
-npm init @vitejs/app my-app
-#or yarn create @vitejs/app
-
-cd my-app
-
-npm i
-```
 
 ### 安装
 
