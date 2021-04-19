@@ -1,6 +1,6 @@
-> 锚点效果演示请查看[移动端演示](https://tuzilow.github.io/bar-ui)
+> 锚点效果演示请查看[移动端演示](https://xmy6364.github.io/bar-ui)
 
-> 演示代码请查看[移动端演示代码](https://github.com/Tuzilow/bar-ui/blob/main/src/views/example.vue)
+> 演示代码请查看[移动端演示代码](https://github.com/xmy6364/bar-ui/blob/main/src/views/example.vue)
 
 ## 函数签名
 
