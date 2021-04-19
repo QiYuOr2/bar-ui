@@ -1,6 +1,6 @@
 # BAR UI
 
-使用 Vue3 和 Vite 开发的 UI 库
+使用 Vue3 和 Typescript 开发的 UI 库
 
 ## 安装
 
