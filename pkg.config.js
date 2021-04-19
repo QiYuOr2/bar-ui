@@ -7,6 +7,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
 import less from 'less';
+import pkg from './package.json'
 
 const processLess = function (context, payload) {
   return new Promise((resolve, reject) => {
@@ -49,15 +50,15 @@ export default {
     {
       globals: { vue: 'Vue' },
       name: 'bar',
-      file: 'es/index.js',
-      format: 'es',
+      file: pkg.module,
+      format: 'esm',
       plugins: [terser()],
     },
     {
       globals: { vue: 'Vue' },
       name: 'bar',
-      file: 'lib/index.js',
-      format: 'umd',
+      file: pkg.main,
+      format: 'cjs',
       plugins: [terser()],
     },
   ],
@@ -66,6 +67,7 @@ export default {
       lib: ['es5', 'es6', 'dom'],
       target: 'es5', // 输出目标
       noEmitOnError: true, // 运行时是否验证ts错误
+      useTsconfigDeclarationDir: true,
     }),
     resolve({ mainFields: ['module', 'main', 'browser'] }),
     commonjs({ extensions, sourceMap: true }),

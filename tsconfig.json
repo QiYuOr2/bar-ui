@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "target": "esnext",
-    "module": "esnext",
+    "declarationDir": "lib/types",
+    "target": "es2015",
+    "module": "es2015",
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",

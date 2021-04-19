@@ -1,17 +1,10 @@
 ## 快速开始
 
-本项目使用 vue3、vite 和 typescript 开发，并且采用了 jsx 语法进行组件开发
+本项目使用 vue3、rollup 和 typescript 开发，没有设计风格，所有UI的样式都是随便做的。
 
 > 文档编写时的环境：
-> 
+>
 > - vue v3.0.5
-> - vite v2.0.0-beta.35
-
-### 注意
-
-当前 UI 库仅 vite 创建的 vue 项目可以使用
-
-[vite 官方文档](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
 
 ```bash
 # 创建vite项目

@@ -12,7 +12,7 @@
         v-model="activeSide"
         class="sidebar"
         :value="sidebar"
-        footer="copyright © Tuzilow"
+        footer="copyright © xmy6364"
       />
       <main class="home-content">
         <router-view></router-view>
@@ -301,7 +301,7 @@ body {
       padding-top: 20px;
       margin-bottom: 0;
       height: calc(100vh - 46px);
-      width: 200px;
+      width: 250px;
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.16);
     }
     .home-content {
