@@ -46,7 +46,7 @@ export default defineComponent({
 
 ## 演示及文档
 
-[https://tuzilow.github.io/bar-ui](https://tuzilow.github.io/bar-ui/)
+[https://xmy6364.github.io/bar-ui](https://xmy6364.github.io/bar-ui/)
 
 ## LICENSE
 
